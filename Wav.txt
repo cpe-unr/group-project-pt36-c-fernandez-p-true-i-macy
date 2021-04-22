@@ -1,0 +1,20 @@
+BYTES:      CHUNK:                  WAV INTERFACE:              VARIABLE MEANING:
+            Standard Wave File:     wav.wh
+4           "RIFF"                                              -
+4           *fileSize*                                          total number of bytes in file after this integer
+4           "WAVE"                                              -
+4           "fmt "                                              -
+20          *Formatting Info*                                   -
+4           "data"                                              -
+4           *dataSize*              wav.getBufferSize()         total number of bytes in sound data section
+dataSize    *Sound Data*            wav.getBuffer()             what we store in buffer
+
+            Metadata Header:        wav.mh                      include this header section if metadata is present
+4           "LIST"                                              -
+4           *listSize*                                          number of bytes until end of all metadata after this integer
+4           "INFO"                                              -
+
+            Metadata Chunk:         view: wav.printMetadata()   include one of these chunks for each piece of metadata
+4           *Entry Tag*                                         refer to https://www.robotplanet.dk/audio/wav_meta_data/ for metadata tags
+4           *entrySize*                                         number of bytes in this singular metadata entry after this integer
+entrySize   *Entry* + "\0\0"                                    the metadata itself followed by 2 null characters

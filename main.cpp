@@ -1,5 +1,8 @@
 /** @file */
 #include <iostream>
+#include "Wav.h"
+
+const std::string testfile = "testfile.wav";
 
 /**
  * \brief   The function bar.
@@ -26,6 +29,9 @@ void fn(){
 }
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Wav wav;
+    wav.readFile(testfile);
+    wav.printMetadata();
+    
     return 0;
 }
