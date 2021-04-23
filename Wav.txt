@@ -17,4 +17,4 @@ dataSize    *Sound Data*            wav.getBuffer()             what we store in
             Metadata Chunk:         view: wav.printMetadata()   include one of these chunks for each piece of metadata
 4           *Entry Tag*                                         refer to https://www.robotplanet.dk/audio/wav_meta_data/ for metadata tags
 4           *entrySize*                                         number of bytes in this singular metadata entry after this integer
-entrySize   *Entry* + "\0\0"                                    the metadata itself followed by 2 null characters
+entrySize   *Entry* + "\0" (+"\0")                              the metadata itself followed by 1 or 2 null characters (depends on software)

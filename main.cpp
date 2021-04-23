@@ -38,6 +38,7 @@ int main(int argc, char* const argv[]){
         for(int i = 0; i < wm.getSize(); ++i){
             std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
             wm.getWav(i)->printMetadata();
+            std::cout << std::endl;
         }
     } 
     catch(std::exception &e) {
