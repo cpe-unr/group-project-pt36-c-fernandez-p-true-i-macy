@@ -1,16 +1,10 @@
 #include "Wav.h"
 
-// Custom destructor
-Wav::~Wav() {
-    if(buffer != NULL){
-        delete[] buffer;
-    }
-}
-
-// If input wave file opens, reads in and stores its contents
-void Wav::readFile(const std::string &fileName) {
+// Constructs Wav object from input file
+Wav::Wav(const std::string& fileName){
     std::ifstream file(fileName,std::ios::binary | std::ios::in);
     if(file.is_open()){
+        this->fileName = fileName;
         file.read((char*)&wh, sizeof(wav_header));  // Reads and stores wave header
         buffer = new unsigned char[wh.data_bytes];  // Declares new buffer to hold data
         file.read((char*)buffer, wh.data_bytes);    // Reads data into buffer
@@ -24,8 +18,15 @@ void Wav::readFile(const std::string &fileName) {
     }
 }
 
-// Writes contents to output wave file
-void Wav::writeFile(const std::string &outFileName) {
+// Custom destructor
+Wav::~Wav() {
+    if(buffer != NULL){
+        delete[] buffer;
+    }
+}
+
+// Writes contents of Wav object to output .wav file
+void Wav::writeFile(const std::string &outFileName){
     std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
     outFile.write((char*)&wh,sizeof(wav_header));
     outFile.write((char*)buffer, wh.data_bytes);
@@ -54,4 +55,9 @@ int Wav::getBufferSize() const{
 // Returns number of audio channels
 int Wav::getNumChannels() const{
     return wh.num_channels; 
+}
+
+// Returns name of .wav file
+std::string Wav::getFileName() const{
+    return fileName;
 }

@@ -1,6 +1,6 @@
 #include "MetadataManager.h"
 
-// Constructs metadata manager from input file
+// Constructs MetdaDatamanager object from input file stream
 MetadataManager::MetadataManager(std::ifstream& file){
     file.read((char*)&mh, sizeof(MetadataHeader));
     int i = 0, counter = 0;

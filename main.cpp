@@ -1,8 +1,5 @@
 /** @file */
-#include <iostream>
-#include "Wav.h"
-
-const std::string testfile = "testfile.wav";
+#include "WavManager.h"
 
 /**
  * \brief   The function bar.
@@ -28,10 +25,24 @@ void fn(){
 
 }
 
-int main() {
-    Wav wav;
-    wav.readFile(testfile);
-    wav.printMetadata();
+int main(int argc, char* const argv[]){
+    // Read input directory into WavManager object
+    // Each file saved as Wav object in WavManager.wavs vector
+    if(argc != 2){
+        std::cout << "Correct usage:" << std::endl;
+        std::cout << argv[0] << " path (ex: \"./test audiofiles\")" << std::endl;
+        return 0;
+    }
+    try{
+        WavManager wm(argv[1]);
+        for(int i = 0; i < wm.getSize(); ++i){
+            std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
+            wm.getWav(i)->printMetadata();
+        }
+    } 
+    catch(std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
     
     return 0;
 }

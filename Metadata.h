@@ -19,4 +19,5 @@ public:
     std::string getBuffer() const;
     void setBuffer(std::string);
 };
+
 #endif //METADATA_H

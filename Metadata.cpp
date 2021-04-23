@@ -29,7 +29,7 @@ std::string Metadata::getBuffer() const{
     return str;
 }
 
-// Sets buffer when given a string
+// Sets metadata buffer when given a string
 // NOTE: when setting buffer we must update listSize in MetadataHeader and wav_size in wav_header
 void Metadata::setBuffer(std::string str){
     size = str.length() + 2;
