@@ -6,6 +6,7 @@
 
 /** @file */
 #include "WavManager.h"
+#include <iostream>
 
 /**
  * \brief   The function bar.
@@ -57,6 +58,36 @@ int main(int argc, char* const argv[]){
         std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
         wm.getWav(i)->printMetadata();
         std::cout << std::endl;
+    }
+
+    int option, amountChoosen;
+    std::cout << "How many things would you like to do to the audio file. 0 to EXIT" << std::endl; //Add the amount between things in print statement
+    std::cin >> amountChoosen;
+    if(amountChoosen != 0){
+        std::cout << "Please select the first option you would like to choose." << std::endl << "Normalization - 1" << std::endl << "Noisegating - 2" << std::endl << "Echo - 3" << std::endl << "More Options if needed. EXIT - 0" << std::endl; //Add options and the corresponding numbers here
+    }
+    for(int i = 0; i < amountChoosen; i++){
+        std::cout << "Please pick an option" << std::endl;
+        std::cin >> option;
+        //Might use switch statement ask TA or Lancaster if its allowed
+        if(option == 0){
+            //Exit Option
+            return 0;
+        }
+        else if(option == 1){
+            //call cpp file for Normalization
+            std::cout << "option 1" << std::endl;
+        }
+        else if(option == 2){
+            //call cpp file for Noisegating
+            std::cout << "option 2" << std::endl;
+        }
+        else if(option == 3){
+            //call cpp file for Echo
+            std::cout << "option 3" << std::endl;
+        }
+        //Create more option else if statements once we go through all the options
+        
     }
     
     return 0;
