@@ -6,7 +6,7 @@ Data::Data(std::ifstream& file, int size){
     file.read((char*)buffer, size);
 }
 
-// destruct Data object and delete buffer
+// destructs Data object and delete buffer
 Data::~Data(){
     if(buffer != NULL){
         delete[] buffer;

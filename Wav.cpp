@@ -4,16 +4,17 @@
 Wav::Wav(const std::string& fileName){
     std::ifstream file(fileName,std::ios::binary | std::ios::in);
     if(file.is_open()){
-        this->fileName = fileName;
+        this->fileName = fileName;                  // reads and stores fileName
         file.read((char*)&wh, sizeof(WavHeader));   // reads and stores WavHeader
-        data = Data(file, wh.dataSize);             // reads and stores Data
+        buffer = new unsigned char[wh.dataSize];
+        file.read((char*)buffer, wh.dataSize);      // reads and stores Data
         if(!file.eof()){
-            mm = MetadataManager(file);             // Reads metadata and stores in metadata manager
+            mm = MetadataManager(file);             // reads and stores MetadataManager
         }
         file.close();
     }
     else{
-        std::runtime_error("File " + fileName + " could not be opened.");
+        std::cout << "File " << fileName << " could not be opened.";
     }
 }
 
@@ -39,17 +40,17 @@ std::string Wav::getFileName() const{
     return fileName;
 }
 
-// returns data buffer
-unsigned char* Wav::getBuffer(){
-    return data.getBuffer();
-}
-
 // returns number of bytes in data buffer
 int Wav::getBufferSize() const{
     return wh.dataSize;
 }
 
-// returns number of audio channels
-int Wav::getNumChannels() const{
-    return wh.numChannels; 
+// returns data buffer
+unsigned char* Wav::getBuffer() const{
+    return buffer;
+}
+
+// destruct Wav object and delete buffer
+Wav::~Wav(){
+    delete[] buffer;
 }

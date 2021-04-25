@@ -2,19 +2,18 @@
 #define METADATA_H
 
 #include <fstream>
-#include <vector>
 #include <string>
 #include <iostream>
 
 class Metadata{
 private:
-    char tag[4];      
-    int size;
-    std::vector <char> buffer;
+    char metadataID[4];      
+    int metadataSize;
+    std::string buffer;
 public:
     Metadata() = default;
     Metadata(std::ifstream&);
-    std::string getTag() const;
+    std::string getID() const;
     int getSize() const;
     std::string getBuffer() const;
     void setBuffer(std::string);

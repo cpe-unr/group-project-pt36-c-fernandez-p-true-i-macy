@@ -2,24 +2,23 @@
 #define WAV_H
 
 #include "WavHeader.h"
-#include "Data.h"
-#include "MetadataHeader.h"
 #include "MetadataManager.h"
 
 class Wav{
 private:
     std::string fileName;
     WavHeader wh;
-    Data data;
+    unsigned char* buffer = NULL;
     MetadataManager mm;
 public:
     Wav(const std::string&);
+    virtual ~Wav();
+    void destructData();
     void writeFile(const std::string&);
     void printMetadata();
-    unsigned char* getBuffer();
     int getBufferSize() const;
-    int getNumChannels() const;
     std::string getFileName() const;
+    unsigned char* getBuffer() const;
 };
 
 #endif //WAV_H

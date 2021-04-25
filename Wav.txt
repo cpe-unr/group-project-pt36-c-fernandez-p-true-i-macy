@@ -1,20 +1,29 @@
-BYTES:      CHUNK:                  WAV INTERFACE:              VARIABLE MEANING:
-            Standard Wave File:     wav.wh
-4           "RIFF"                                              -
-4           *fileSize*                                          total number of bytes in file after this integer
-4           "WAVE"                                              -
-4           "fmt "                                              -
-20          *Formatting Info*                                   -
-4           "data"                                              -
-4           *dataSize*              wav.getBufferSize()         total number of bytes in sound data section
-dataSize    *Sound Data*            wav.getBuffer()             what we store in buffer
+BYTES:          VALUE OR *VARIABLE*:    LOCATION IN WAV CLASS:          NOTES:
 
-            Metadata Header:        wav.mh                      include this header section if metadata is present
-4           "LIST"                                              -
-4           *listSize*                                          number of bytes until end of all metadata after this integer
-4           "INFO"                                              -
+-               WavHeader:              wh                              struct that stores .wav file header info
+4: char[4]      RIFF                    wh.riffID                       -
+4: int          *fileSize*              wh.fileSize                     total number of bytes in file after this integer
+4: char[4]      WAVE                    wh.waveID                       -
+4: char[4]      fmt                     wh.fmtID                        include space in "fmt "
+4: int          *fmtSize*               wh.fmtSize                      -
+2: short        1                       wh.audioFmt                     -
+2: short        1 or 2                  wh.numChannels                  1 = mono, 2 = stereo
+4: int          *sampleRate*            wh.sampleRate                   -
+4: int          *byteRate*              wh.byteRate                     -
+2: short        *blockAlign*            wh.blockAlign                   -
+2: short        *bitsPerSample*         wh.bitsPerSample                -
+4: char[4]      data                    wav.dataID                      -
+4: int          *dataSize*              wav.dataSize                    total number of bytes in sound data section
 
-            Metadata Chunk:         view: wav.printMetadata()   include one of these chunks for each piece of metadata
-4           *Entry Tag*                                         refer to https://www.robotplanet.dk/audio/wav_meta_data/ for metadata tags
-4           *entrySize*                                         number of bytes in this singular metadata entry after this integer
-entrySize   *Entry* + "\0" (+"\0")                              the metadata itself followed by 1 or 2 null characters (depends on software)
+-               Data:                   data                            class that stores audio data (not yet implemented)
+*dataSize*      *buffer*                data.buffer                     STEREO MAY BE DIFFERENT
+
+-               MetadataHeader:         mh                              struct included after Data section if file contains any metadata
+4: char[4]      LIST                    mh.listID                       -
+4: int          *listSize*              mh.listSize                     number of bytes after this integer until end of all metadata
+4: char[4]      INFO                    mh.infoID                       -
+
+-               Metadata:               mh.metadatas[i]                 class included in mh.metadatas vector for each piece of metadata
+4: char[4]      *metadataID*            mh.metadatas[i].metadataID      refer to https://www.robotplanet.dk/audio/wav_meta_data/ for metadata tags
+4: int          *metadataSize*          mh.metadatas[i].metadataSize    number of bytes in this singular metadata entry after this integer
+*metadataSize*  *buffer*                mh.metadatas[i].buffer          the metadata itself followed by 1 or 2 null characters
