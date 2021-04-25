@@ -2,7 +2,6 @@
 #define METADATA_MANAGER_H
 
 #include <vector>
-#include <iostream>
 #include "Metadata.h"
 #include "MetadataHeader.h"
 

@@ -33,16 +33,12 @@ int main(int argc, char* const argv[]){
         std::cout << argv[0] << " path (ex: \"./test audiofiles\")" << std::endl;
         return 0;
     }
-    try{
-        WavManager wm(argv[1]);
-        for(int i = 0; i < wm.getSize(); ++i){
-            std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
-            wm.getWav(i)->printMetadata();
-            std::cout << std::endl;
-        }
-    } 
-    catch(std::exception &e) {
-        std::cout << e.what() << std::endl;
+    
+    WavManager wm(argv[1]);
+    for(int i = 0; i < wm.getSize(); ++i){
+        std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
+        wm.getWav(i)->printMetadata();
+        std::cout << std::endl;
     }
     
     return 0;

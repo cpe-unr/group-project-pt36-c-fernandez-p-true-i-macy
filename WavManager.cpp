@@ -6,23 +6,28 @@ WavManager::WavManager(char* path){
     struct dirent *entry;
     DIR *dir = opendir(path);
     if(dir == NULL){
-        throw std::runtime_error(std::string("Directory could not be found."));
-    }
-    // Creates and populates fileNames vector
-    std::vector<std::string> fileNames;
-    while((entry = readdir(dir)) != NULL){
-        std::string temp = entry->d_name;
-        std::string extension(temp.end() - 4, temp.end());
-        if(extension == ".wav"){
-            fileNames.push_back(entry->d_name);
+        std::cout << "Directory could not be found." << std::endl;
+    } else{
+        // Creates and populates fileNames vector
+        std::vector<std::string> fileNames;
+        while((entry = readdir(dir)) != NULL){
+            std::string temp = entry->d_name;
+            std::string extension(temp.end() - 4, temp.end());
+            if(extension == ".wav"){
+                fileNames.push_back(entry->d_name);
+            }
         }
-    }
-    closedir(dir);
-    // Construct Wav object for each .wav file in directory and store in wavs vector
-    for(std::string fileName : fileNames){
-        std::string strPath(path);
-        strPath.push_back('/');
-        wavs.push_back(new Wav(strPath + fileName));
+        closedir(dir);
+        if(fileNames.size() == 0){
+            std::cout << "Directory does not contain any '.wav' files." << std::endl;
+        } else{
+            // Construct Wav object for each .wav file in directory and store in wavs vector
+            for(std::string fileName : fileNames){
+                std::string strPath(path);
+                strPath.push_back('/');
+                wavs.push_back(new Wav(strPath + fileName));
+            }
+        }
     }
 }   
 
