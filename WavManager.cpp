@@ -1,6 +1,9 @@
 #include "WavManager.h"
 
-// construct WavManager object given path to directory of .wav files
+/**
+ * @param path - the directory path it should take
+ *  construct WavManager object given path to directory of .wav files
+*/
 WavManager::WavManager(char* path){
     // Check if directory opens
     struct dirent *entry;
@@ -30,19 +33,26 @@ WavManager::WavManager(char* path){
         }
     }
 } 
-
+/**
+ * 
+*/
 WavManager::~WavManager(){
     for(Wav* wav: wavs){
         delete wav;
     }
 }
 
-// returns pointer to Wav object at index i in wavs vector
+/**
+ * @param i - index i 
+ * @returns - pointer to Wav object at index i in wavs vector
+*/
 Wav* WavManager::getWav(int i) const{
     return wavs[i];
 }
 
-// Returns size of wavs vector
+/**
+ *  @returns - size of wavs vector
+*/
 int WavManager::getSize() const{
     return wavs.size();
 }

@@ -1,3 +1,9 @@
+/**
+ * Authors: Parker True, Chris Fernandez, & Ilana Macy
+ * Date Due: May 2, 2021
+ * Assignment: Semester Project
+*/
+
 /** @file */
 #include "WavManager.h"
 
@@ -21,10 +27,22 @@
  * \retval        ERR_SUCCESS    The function is successfully executed
  * \retval        ERR_FAILURE    An error occurred
  */
+
+/**
+ * Purpose of function
+ * What does it do
+*/
 void fn(){
 
 }
 
+/**
+ * Purpose of function
+ * What does it do
+ * What does it print
+ * @param in - argc and argv for the file information 
+ * @return - 0
+*/
 int main(int argc, char* const argv[]){
     // Read input directory into WavManager object
     // Each file saved as Wav object in WavManager.wavs vector

@@ -1,3 +1,9 @@
+/**
+ * Authors: Parker True, Chris Fernandez, & Ilana Macy
+ * Date Due: May 2, 2021
+ * Assignment: Semester Project
+*/
+
 #ifndef METADATA_HEADER_H
 #define METADATA_HEADER_H
 

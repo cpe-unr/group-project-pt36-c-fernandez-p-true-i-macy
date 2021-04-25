@@ -1,6 +1,9 @@
 #include "Wav.h"
 
-// constructs Wav object from input file
+/**
+ * @param fileName - the name of the file 
+ *  constructs Wav object from input file
+*/
 Wav::Wav(const std::string& fileName){
     std::ifstream file(fileName,std::ios::binary | std::ios::in);
     if(file.is_open()){
@@ -18,7 +21,10 @@ Wav::Wav(const std::string& fileName){
     }
 }
 
-// writes contents of Wav object to output .wav file
+/**
+ * @param outFileName - the out file name
+ *  writes contents of Wav object to output .wav file
+*/
 void Wav::writeFile(const std::string &outFileName){
     std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
     outFile.write((char*)&wh,sizeof(WavHeader));
@@ -30,27 +36,37 @@ void Wav::writeFile(const std::string &outFileName){
     outFile.close();
 }
 
-// prints each metadata on newline
+/**
+ *  prints each metadata on newline
+*/
 void Wav::printMetadata(){
     mm.print();
 }
 
-// returns name of .wav file
+/**
+ *  @returns - name of .wav file
+*/
 std::string Wav::getFileName() const{
     return fileName;
 }
 
-// returns number of bytes in data buffer
+/**
+ *  @returns - number of bytes in data buffer
+*/
 int Wav::getBufferSize() const{
     return wh.dataSize;
 }
 
-// returns data buffer
+/**
+ *  @returns - data buffer
+*/
 unsigned char* Wav::getBuffer() const{
     return buffer;
 }
 
-// destruct Wav object and delete buffer
+/**
+ *  destruct Wav object and delete buffer
+*/
 Wav::~Wav(){
     delete[] buffer;
 }

@@ -1,3 +1,9 @@
+/**
+ * Authors: Parker True, Chris Fernandez, & Ilana Macy
+ * Date Due: May 2, 2021
+ * Assignment: Semester Project
+*/
+
 #ifndef WAV_H
 #define WAV_H
 
