@@ -3,7 +3,7 @@
 /**
  * @param file - file information
  * @param size - the size of file I think...
- * constructs Data from file
+ * @details - constructs Data from file
 */
 Data::Data(std::ifstream& file, int size){
     buffer = new unsigned char[size];
@@ -11,7 +11,7 @@ Data::Data(std::ifstream& file, int size){
 }
 
 /**
- *  destructs Data object and delete buffer
+ * @details - destructs Data object and delete buffer
 */
 Data::~Data(){
     if(buffer != NULL){

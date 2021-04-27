@@ -2,7 +2,7 @@
 
 /**
  * @param path - the directory path it should take
- *  construct WavManager object given path to directory of .wav files
+ *  @details - construct WavManager object given path to directory of .wav files
 */
 WavManager::WavManager(char* path){
     // Check if directory opens

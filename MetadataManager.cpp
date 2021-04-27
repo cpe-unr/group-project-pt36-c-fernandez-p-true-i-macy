@@ -1,7 +1,7 @@
 #include "MetadataManager.h"
 
 /**
- *  constructs MetadataManager object from input file stream
+ *  @details - constructs MetadataManager object from input file stream
  * @param file - the file info
 */
 MetadataManager::MetadataManager(std::ifstream& file){

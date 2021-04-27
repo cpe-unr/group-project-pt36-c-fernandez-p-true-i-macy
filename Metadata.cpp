@@ -37,7 +37,7 @@ std::string Metadata::getBuffer() const{
 }
 
 /**
- *  sets metadata buffer when given a string
+ * @details - sets metadata buffer when given a string
  * @param buffer - the buffer
  * @note - when setting buffer we must update listSize in MetadataHeader and fileSize in WavHeader
 */

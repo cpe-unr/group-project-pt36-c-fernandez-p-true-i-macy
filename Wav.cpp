@@ -65,7 +65,7 @@ unsigned char* Wav::getBuffer() const{
 }
 
 /**
- *  destruct Wav object and delete buffer
+ *  @details - destruct Wav object and delete buffer
 */
 Wav::~Wav(){
     delete[] buffer;

@@ -41,7 +41,8 @@ void fn(){
  * Purpose of function
  * What does it do
  * What does it print
- * @param in - argc and argv for the file information 
+ * @param argc - amount in command line
+ * @param argv - filename
  * @return - 0
 */
 int main(int argc, char* const argv[]){
