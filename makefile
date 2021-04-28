@@ -1,5 +1,5 @@
-test: main.cpp Metadata.o MetadataManager.o Wav.o WavManager.o Data.o Noisegate.o
-	g++ -std=c++11 -o test main.cpp Metadata.o MetadataManager.o Wav.o WavManager.o Data.o Noisegate.o
+test: main.cpp Metadata.o MetadataManager.o Wav.o WavManager.o Data.o Noisegate.o Echo.o
+	g++ -std=c++11 -o test main.cpp Metadata.o MetadataManager.o Wav.o WavManager.o Data.o Noisegate.o Echo.o
 
 Metadata.o: Metadata.cpp Metadata.h
 	g++ -std=c++11 -c Metadata.cpp
@@ -15,6 +15,9 @@ WavManager.o: WavManager.cpp WavManager.h
 
 Noisegate.o: Noisegate.cpp Noisegate.h
 	g++ -std=c++11 -c Noisegate.cpp
+
+Echo.o: Echo.cpp Echo.h
+	g++ -std=c++11 -c Echo.cpp
 
 Data.o: Data.cpp Data.h
 	g++ -std=c++11 -c Data.cpp
