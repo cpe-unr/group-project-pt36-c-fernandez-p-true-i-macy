@@ -65,7 +65,7 @@ int main(int argc, char* const argv[]){
     std::cout << "How many things would you like to do to the audio file. 0 to EXIT" << std::endl; //Add the amount between things in print statement
     std::cin >> amountChoosen;
     if(amountChoosen != 0){
-        std::cout << "Please select the first option you would like to choose." << std::endl << "Normalization - 1" << std::endl << "Noisegating - 2" << std::endl << "Echo - 3" << std::endl << "More Options if needed. EXIT - 0" << std::endl; //Add options and the corresponding numbers here
+        std::cout << "Please select the first option you would like to choose." << std::endl << "Normalization - 1" << std::endl << "Noisegating - 2" << std::endl << "Echo - 3" << std::endl << "EXIT - 0" << std::endl; 
     }
     for(int i = 0; i < amountChoosen; i++){
         std::cout << "Please pick an option" << std::endl;
@@ -87,7 +87,6 @@ int main(int argc, char* const argv[]){
             //call cpp file for Echo
             std::cout << "option 3" << std::endl;
         }
-        //Create more option else if statements once we go through all the options
         
     }
     
