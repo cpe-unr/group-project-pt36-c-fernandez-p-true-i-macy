@@ -1,5 +1,5 @@
-- implement way to store diffent data formats using Data class
-- user interface
-- wav processing
+TODO:
+- continue user interface
+- wav processing templates
 - write to CSV file
 - write to output .wav file

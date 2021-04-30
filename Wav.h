@@ -15,6 +15,7 @@ private:
     std::string fileName;
     WavHeader wh;
     unsigned char* buffer = NULL;
+    unsigned char* buffer2 = NULL;
     MetadataManager mm;
 public:
     Wav(const std::string&);
@@ -22,9 +23,24 @@ public:
     void destructData();
     void writeFile(const std::string&);
     void printMetadata();
-    int getBufferSize() const;
     std::string getFileName() const;
-    unsigned char* getBuffer() const;
+    int getBufferSize() const;
+
+    /**
+     * @returns - pointer to buffer of type T
+     */ 
+    template<typename T>
+    T* getBuffer() const{
+        return reinterpret_cast<T*>(buffer);
+    }
+
+    /**
+     * @returns - pointer to buffer2 of type T
+     */ 
+    template<typename T>
+    T* getBuffer2() const{
+        return reinterpret_cast<T*>(buffer2);
+    } 
 };
 
 #endif //WAV_H

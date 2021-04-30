@@ -7,7 +7,10 @@
 #ifndef ECHO_H
 #define ECHO_H
 
-class Echo {
+#include "Algorithm.h"
+
+template<typename T>
+class Echo : public Algorithm<T>{
 
 	int newDelay;
 

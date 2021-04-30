@@ -9,8 +9,21 @@ Wav::Wav(const std::string& fileName){
     if(file.is_open()){
         this->fileName = fileName;                  // reads and stores fileName
         file.read((char*)&wh, sizeof(WavHeader));   // reads and stores WavHeader
-        buffer = new unsigned char[wh.dataSize];
-        file.read((char*)buffer, wh.dataSize);      // reads and stores Data
+        if(wh.numChannels == 1){
+            buffer = new unsigned char[wh.dataSize];
+            file.read((char*)buffer, wh.dataSize);      // reads and stores Data
+        } else{
+            buffer = new unsigned char[wh.dataSize/2];
+            buffer2 = new unsigned char[wh.dataSize/2];
+            for(int i = 0; i < wh.dataSize/2; i += wh.blockAlign/2){
+                for(int j = 0; j < wh.bitsPerSample/8; ++j){
+                    buffer[i+j] = file.get();
+                }
+                for(int j = 0; j < wh.bitsPerSample/8; ++j){
+                    buffer2[i+j] = file.get();
+                }
+            }
+        }
         if(!file.eof()){
             mm = MetadataManager(file);             // reads and stores MetadataManager
         }
@@ -51,17 +64,10 @@ std::string Wav::getFileName() const{
 }
 
 /**
- *  @returns - number of bytes in data buffer
+ * @returns - size of (each) unsigned char buffer
 */
 int Wav::getBufferSize() const{
-    return wh.dataSize;
-}
-
-/**
- *  @returns - data buffer
-*/
-unsigned char* Wav::getBuffer() const{
-    return buffer;
+    return wh.dataSize / wh.numChannels;
 }
 
 /**
@@ -69,4 +75,5 @@ unsigned char* Wav::getBuffer() const{
 */
 Wav::~Wav(){
     delete[] buffer;
+    delete[] buffer2;
 }
