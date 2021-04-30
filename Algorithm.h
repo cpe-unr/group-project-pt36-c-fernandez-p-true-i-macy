@@ -6,7 +6,22 @@
 template<typename T>
 class Algorithm{
 public:
-    void processBuffer(T* buffer, int bufferSize) = 0;
+    int calcMax(){
+        switch(sizeof(T)){
+            case 8: 
+            case 16:
+        }
+    }
+
+    int calcMin(){
+
+    }
+
+    int calcZero(){
+
+    }
+
+    virtual void processBuffer(T* buffer, int bufferSize) = 0 override;
 };
 
 #endif // PROCESSOR_H
