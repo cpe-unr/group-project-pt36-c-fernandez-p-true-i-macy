@@ -33,6 +33,7 @@ WavManager::WavManager(char* path){
         }
     }
 } 
+
 /**
  * 
 */
@@ -55,4 +56,20 @@ Wav* WavManager::getWav(int i) const{
 */
 int WavManager::getSize() const{
     return wavs.size();
+}
+
+/**
+ * @returns - pointer to the Wav object you select
+*/ 
+Wav* WavManager::selectWav(){
+    int index = 0;
+    std::cout << std::endl;
+    for(int i = 0; i < wavs.size(); ++i){
+        std::cout << i + 1 << ") " << wavs[i]->getFileName() << std::endl;
+    }
+    while(index < 1 || index > wavs.size()){
+        std::cout << "SELECT A FILE: ";
+        std::cin >> index;
+    }
+    return wavs[index - 1];
 }

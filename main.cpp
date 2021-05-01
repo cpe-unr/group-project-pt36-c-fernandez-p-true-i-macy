@@ -6,7 +6,7 @@
 
 /** @file */
 #include "WavManager.h"
-#include "UI.h"
+#include "Driver.h"
 
 /**
  * \brief   The function bar.
@@ -57,14 +57,30 @@ int main(int argc, char* const argv[]){
     if(wm.getSize() < 1){
         return 0;
     }
-    for(int i = 0; i < wm.getSize(); ++i){
-        std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
-        wm.getWav(i)->printMetadata();
-        std::cout << std::endl;
-    }
 
-    UI ui;
-    ui.getMenuChoice();
+    // TEST: prints metadata if file input is correct
+    //for(int i = 0; i < wm.getSize(); ++i){
+        //std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
+        wm.getWav(1)->printMetadata(); // FOR SOME REASON DELETING THIS LINE BREAKS THE APP
+        //std::cout << std::endl;
+    //}
+
+    // Main Menu
+    std::cout << "WAVE FILE PROCESSOR" << std::endl;
+    Driver d(wm.selectWav());
+    int option;
+    do{
+        std::cout << std::endl << "1) Apply Processor" << std::endl << "2) Select New File" 
+            << std::endl << "3) OPTION3" << std::endl << "0) EXIT" << std::endl << "SELECT AN OPTION: ";
+        std::cin >> option;
+        switch(option){
+            case 0: break;
+            case 1: d.processWav(); break;
+            case 2: d.setWav(wm.selectWav()); break;
+            case 3: 
+            default: std::cout << std::endl << "Please enter a valid option." << std::endl;
+        }
+    } while(option != 0);
     
     return 0;
 }

@@ -24,6 +24,7 @@ public:
     void writeFile(const std::string&);
     void printMetadata();
     std::string getFileName() const;
+    int getBitsPerSample() const;
     int getBufferSize() const;
 
     /**

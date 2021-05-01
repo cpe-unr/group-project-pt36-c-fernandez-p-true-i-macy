@@ -19,6 +19,7 @@ public:
     virtual ~WavManager();
     Wav* getWav(int) const;
     int getSize() const;
+    Wav* selectWav();
 };
 
 #endif // WAV_MANAGER

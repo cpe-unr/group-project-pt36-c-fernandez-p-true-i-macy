@@ -1,27 +1,21 @@
 #ifndef ALGORITHM_H
 #define ALGORITHM_H
 
+#include <math.h>
 #include "Wav.h"
+
+// NOTE: must add 128 after processing unsigned char buffer
 
 template<typename T>
 class Algorithm{
+private:
+    int min, max;
 public:
-    int calcMax(){
-        switch(sizeof(T)){
-            case 8: 
-            case 16:
-        }
+    Algorithm(){
+        min = pow(2, sizeof(T)-1) * -1;
+        max = (min * -1) -1;
     }
-
-    int calcMin(){
-
-    }
-
-    int calcZero(){
-
-    }
-
-    virtual void processBuffer(T* buffer, int bufferSize) = 0 override;
+    virtual void processBuffer(T* buffer, int bufferSize){}
 };
 
 #endif // PROCESSOR_H

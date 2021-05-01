@@ -7,12 +7,12 @@
 Wav::Wav(const std::string& fileName){
     std::ifstream file(fileName,std::ios::binary | std::ios::in);
     if(file.is_open()){
-        this->fileName = fileName;                  // reads and stores fileName
-        file.read((char*)&wh, sizeof(WavHeader));   // reads and stores WavHeader
-        if(wh.numChannels == 1){
+        this->fileName = fileName;                      // reads fileName
+        file.read((char*)&wh, sizeof(WavHeader));       // reads WavHeader
+        if(wh.numChannels == 1){                        // reads mono
             buffer = new unsigned char[wh.dataSize];
-            file.read((char*)buffer, wh.dataSize);      // reads and stores Data
-        } else{
+            file.read((char*)buffer, wh.dataSize);     
+        } else{                                         // reads stereo
             buffer = new unsigned char[wh.dataSize/2];
             buffer2 = new unsigned char[wh.dataSize/2];
             for(int i = 0; i < wh.dataSize/2; i += wh.blockAlign/2){
@@ -24,8 +24,8 @@ Wav::Wav(const std::string& fileName){
                 }
             }
         }
-        if(!file.eof()){
-            mm = MetadataManager(file);             // reads and stores MetadataManager
+        if(!file.eof()){                                // reads MetadataManager
+            mm = MetadataManager(file);                 
         }
         file.close();
     }
@@ -68,6 +68,13 @@ std::string Wav::getFileName() const{
 */
 int Wav::getBufferSize() const{
     return wh.dataSize / wh.numChannels;
+}
+
+/**
+ * @returns - number of bits per sample
+*/
+int Wav::getBitsPerSample() const{
+    return wh.bitsPerSample;
 }
 
 /**
