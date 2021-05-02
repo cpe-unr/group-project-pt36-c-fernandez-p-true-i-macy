@@ -4,18 +4,24 @@
 #include <math.h>
 #include "Wav.h"
 
-// NOTE: must add 128 after processing unsigned char buffer
-
+/**
+ * @details - base template for processor algorithms
+ * @note - must add 128 after processing unsigned char buffer
+*/
 template<typename T>
 class Algorithm{
 private:
-    int min, max;
+    int LOWER, UPPER;
 public:
+    virtual void processBuffer(T* buffer, int bufferSize) = 0;
+    
+    /**
+     * @details - constructs algorithm object and calculates min and max from T
+    */
     Algorithm(){
-        min = pow(2, sizeof(T)-1) * -1;
-        max = (min * -1) -1;
+        LOWER = pow(2, sizeof(T)-1) * -1;
+        UPPER = (LOWER * -1) - 1;
     }
-    virtual void processBuffer(T* buffer, int bufferSize){}
 };
 
 #endif // PROCESSOR_H

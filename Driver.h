@@ -15,21 +15,21 @@ private:
     */
     template<typename T>
     void processBuffer(Wav* wav){
-        Algorithm<T> a = getProcessorChoice<T>();
-        a.processBuffer(wav->getBuffer<T>(), wav->getBufferSize() / sizeof(T));
+        Algorithm<T>* a = getProcessorChoice<T>();
+        a->processBuffer(wav->getBuffer<T>(), wav->getBufferSize() / sizeof(T));
         if(wav->getBuffer2<T>() != NULL){
-            a.processBuffer(wav->getBuffer2<T>(), wav->getBufferSize() / sizeof(T));
+            a->processBuffer(wav->getBuffer2<T>(), wav->getBufferSize() / sizeof(T));
         }
+        delete a;
     }
 
     /**
      * @returns - the Algorithm object you select
     */ 
     template<typename T>
-    Algorithm<T> getProcessorChoice(){
+    Algorithm<T>* getProcessorChoice(){
         int option;    
         do{
-            std::cout << "OPTION " << option << std::endl;
             std::cout << std::endl  << "1) Normalization" << std::endl << "2) Noisegating" << std::endl 
                 << "3) Echo" << std::endl << std::endl << "SELECT AN OPTION: ";
             std::cin >> option;
@@ -41,12 +41,13 @@ private:
                 case 3: 
                     int delay;
                     std::cout << std::endl << "Enter the delay: ";
-                    std::cin >> delay;
-                    return Echo<T>(delay);  
+                    std::cin >> delay; 
+                    return new Echo<T>(delay);
                 default:
                     std::cout << std::endl << "Please enter a valid option." << std::endl;
             }
         } while(option != 1 && option != 2 && option && 3);
+        std::cout << std::endl <<"OPTION " << option << std::endl;
     }
 
 public:

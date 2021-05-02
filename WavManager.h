@@ -11,6 +11,9 @@
 #include <sys/types.h>
 #include "Wav.h"
 
+/**
+ * @details - manages input, storage, and output for Wav files
+*/
 class WavManager{
 private:
     std::vector<Wav*> wavs;

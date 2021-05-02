@@ -9,9 +9,10 @@
 
 #include "Algorithm.h"
 
-// FROM ALGORITHM.H:
-// int min, max;
-
+/**
+ * @details - applies echo effect to Wav based on input delay
+ * @note - bounds LOWER and UPPER are available from Algorithm inheritance
+*/
 template<typename T>
 class Echo : public Algorithm<T>{
 private:
@@ -19,13 +20,12 @@ private:
 public:
 	explicit Echo(int delay) : newDelay(delay){}
 
-	
-
 	/**
-	 * @details - echo algorithm
+	 * @param - pointer to audio buffer of type T
+	 * @param - number of elements in audio buffer
+	 * @details - applies echo algorithm
 	*/
 	void processBuffer(T *buffer, int bufferSize) override{
-		// BUG: CURRENTLY DOES NOT PRINT WHEN CALLED IN APPLICATION
         std::cout << "Echo processed." << std::endl;
 	}
 };

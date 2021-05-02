@@ -57,13 +57,9 @@ int main(int argc, char* const argv[]){
     if(wm.getSize() < 1){
         return 0;
     }
-
-    // TEST: prints metadata if file input is correct
-    //for(int i = 0; i < wm.getSize(); ++i){
-        //std::cout << "File #" << i << ": " << wm.getWav(i)->getFileName() << std::endl;
+        ///////////////////////////////////////////////////////////////////////////////////
         wm.getWav(1)->printMetadata(); // FOR SOME REASON DELETING THIS LINE BREAKS THE APP
-        //std::cout << std::endl;
-    //}
+        ///////////////////////////////////////////////////////////////////////////////////
 
     // Main Menu
     std::cout << "WAVE FILE PROCESSOR" << std::endl;

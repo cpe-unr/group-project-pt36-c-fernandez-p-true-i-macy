@@ -2,16 +2,16 @@
 
 /**
  * @param path - the directory path it should take
- *  @details - construct WavManager object given path to directory of .wav files
+ * @details - construct WavManager object given path to directory of .wav files
 */
 WavManager::WavManager(char* path){
-    // Check if directory opens
+    // check if directory opens
     struct dirent *entry;
     DIR *dir = opendir(path);
     if(dir == NULL){
         std::cout << "Directory could not be found." << std::endl;
     } else{
-        // Creates and populates fileNames vector
+        // creates and populates fileNames vector
         std::vector<std::string> fileNames;
         while((entry = readdir(dir)) != NULL){
             std::string temp = entry->d_name;
@@ -24,18 +24,18 @@ WavManager::WavManager(char* path){
         if(fileNames.size() == 0){
             std::cout << "Directory does not contain any '.wav' files." << std::endl;
         } else{
-            // Construct Wav object for each .wav file in directory and store in wavs vector
-            for(std::string fileName : fileNames){
+            // construct Wav object for each .wav file in directory and store in wavs vector
+            for(std::string fileName : fileNames){  
                 std::string strPath(path);
                 strPath.push_back('/');
-                wavs.push_back(new Wav(strPath + fileName));    // NOTE: this creates data, leak must fix in final
+                wavs.push_back(new Wav(strPath + fileName));
             }
         }
     }
 } 
 
 /**
- * 
+ * @details - destructs WavManager and deletes all Wav files in wavs vector
 */
 WavManager::~WavManager(){
     for(Wav* wav: wavs){
@@ -67,9 +67,9 @@ Wav* WavManager::selectWav(){
     for(int i = 0; i < wavs.size(); ++i){
         std::cout << i + 1 << ") " << wavs[i]->getFileName() << std::endl;
     }
-    while(index < 1 || index > wavs.size()){
+    do{
         std::cout << "SELECT A FILE: ";
         std::cin >> index;
-    }
+    } while(index < 1 || index > wavs.size());
     return wavs[index - 1];
 }

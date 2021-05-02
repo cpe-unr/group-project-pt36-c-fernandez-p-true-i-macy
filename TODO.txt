@@ -1,6 +1,6 @@
 TODO:
 - continue building the user interface
-- make the processors work in driver
 - code the template for each processor
 - write to CSV file
 - write to output .wav file
+-check for memory leaks: valgrind --leak-check=yes ./test audiofiles
