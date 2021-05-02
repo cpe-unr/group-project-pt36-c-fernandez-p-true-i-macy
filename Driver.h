@@ -35,9 +35,9 @@ private:
             std::cin >> option;
             switch(option){
                 case 1: std::cout << std::endl << "Normalization processed." << std::endl; break;
-                    // return Normalization<T>;
+                    // return new Normalization<T>;
                 case 2: std::cout << std::endl << "Noisegate processed." << std::endl; break;
-                    // return Noisegate<T>;
+                    // return new Noisegate<T>;
                 case 3: 
                     int delay;
                     std::cout << std::endl << "Enter the delay: ";
