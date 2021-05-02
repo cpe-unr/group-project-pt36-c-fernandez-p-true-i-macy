@@ -34,7 +34,10 @@ private:
                 << "3) Echo" << std::endl << std::endl << "SELECT AN OPTION: ";
             std::cin >> option;
             switch(option){
-                case 1: std::cout << std::endl << "Normalization processed." << std::endl; break;
+                case 1: 
+                    std::cout << std::endl << "Normalization processed." << std::endl; 
+                    
+                    break;
                     // return new Normalization<T>;
                 case 2: std::cout << std::endl << "Noisegate processed." << std::endl; break;
                     // return new Noisegate<T>;
