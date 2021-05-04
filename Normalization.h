@@ -33,6 +33,7 @@ public:
     /**
 	 * @param buffer pointer to audio buffer of type T
 	 * @param bufferSize number of elements in audio buffer
+	 * @return max in the buffer
 	 * @details finds maximum value in buffer
 	*/
     int findMax(T* buffer, int bufferSize){

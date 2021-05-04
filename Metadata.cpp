@@ -1,7 +1,7 @@
 #include "Metadata.h"
 
 /**
- *  constructs one metadata chunk from input file
+ *  @details constructs one metadata chunk from input file
 */
 Metadata::Metadata(std::ifstream& file){
     file.read(metadataID, sizeof(metadataID));
@@ -11,6 +11,7 @@ Metadata::Metadata(std::ifstream& file){
 }
 
 /**
+ * @details gets the ID 
  *  @returns - metadata ID as string
 */
 std::string Metadata::getID() const{
@@ -23,13 +24,15 @@ std::string Metadata::getID() const{
 }
 
 /**
- *  @returns - number of bytes in metadata size variable
+ * @details gets the size of the metadata 
+ * @returns - number of bytes in metadata size variable
 */ 
 int Metadata::getSize() const{
     return metadataSize;
 }
 
 /**
+ * @details calulates the metadata size
  *  @returns - number of bytes in metadata buffer
 */ 
 int Metadata::calcSize(){
@@ -38,6 +41,7 @@ int Metadata::calcSize(){
 }
 
 /**
+ * @details - gets the buffer
  *  @returns - metadata buffer
 */
 std::string Metadata::getBuffer() const{

@@ -43,6 +43,7 @@ WavManager::~WavManager(){
 }
 
 /**
+ * @details gets wav at i
  * @param i - index i 
  * @returns - pointer to Wav object at index i in wavs vector
 */
@@ -51,6 +52,7 @@ Wav* WavManager::getWav(int i) const{
 }
 
 /**
+ * @details gets the size of the wav
  *  @returns - size of wavs vector
 */
 int WavManager::getSize() const{
@@ -58,6 +60,7 @@ int WavManager::getSize() const{
 }
 
 /**
+ * @details creates a pointer to a wav object that is selected by user
  * @returns - pointer to the Wav object you select
 */ 
 Wav* WavManager::selectWav(){
@@ -74,6 +77,7 @@ Wav* WavManager::selectWav(){
 }
 
 /**
+ * @details gets the wavs
  * @return wavs vector
 */
 std::vector<Wav*> WavManager::getWavs() const{
@@ -81,6 +85,7 @@ std::vector<Wav*> WavManager::getWavs() const{
 }
 
 /**
+ * @details gets the file names
  * @returns fileNames vector
 */
 std::vector<std::string> WavManager::getFileNames() const{

@@ -13,7 +13,7 @@ struct MetadataHeader{
     char listID[4];
     int listSize;
     char infoID[4];
-    MetadataManager mm;
+    //MetadataManager mm;
     //MetadataHeader mh;
 
 /**

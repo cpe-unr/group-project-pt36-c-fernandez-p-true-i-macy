@@ -2,7 +2,7 @@
 
 /**
  * @param fileName - the name of the file 
- *  constructs Wav object from input file
+ *  @details constructs Wav object from input file
 */
 Wav::Wav(const std::string& path, const std::string& fileName){
     std::ifstream file(path + fileName,std::ios::binary | std::ios::in);
@@ -37,7 +37,7 @@ Wav::Wav(const std::string& path, const std::string& fileName){
 
 /**
  * @param fileNames - vector containing list of filenames already in directory
- *  writes contents of Wav object to output .wav file
+ *  @details writes contents of Wav object to output .wav file
 */
 void Wav::writeFile(std::vector<std::string>& fileNames){
     std::string outFileName;
@@ -85,6 +85,7 @@ void Wav::writeFile(std::vector<std::string>& fileNames){
 
 /**
  * @details writes to output csv file
+ * @param wavs - vector of the wavs
 */
 void Wav::writeCSV(std::vector<Wav*> wavs){
     std::string outFileName;
@@ -108,13 +109,14 @@ void Wav::writeCSV(std::vector<Wav*> wavs){
 }
 
 /**
- *  prints each metadata on newline
+ *  @details prints each metadata on newline
 */
 void Wav::printMetadata(){
     mm.print();
 }
 
 /**
+ * @details gets the name of the .wav file
  *  @returns - name of .wav file
 */
 std::string Wav::getFileName() const{
@@ -122,6 +124,7 @@ std::string Wav::getFileName() const{
 }
 
 /**
+ * @details gets the size of each unsigned char buffer
  * @returns - size of (each) unsigned char buffer
 */
 int Wav::getBufferSize() const{
@@ -129,6 +132,7 @@ int Wav::getBufferSize() const{
 }
 
 /**
+ * @details gets the number of bits per sample size
  * @returns - number of bits per sample
 */
 int Wav::getBitsPerSample() const{
