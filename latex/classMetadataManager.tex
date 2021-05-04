@@ -1,0 +1,96 @@
+\hypertarget{classMetadataManager}{}\section{Metadata\+Manager Class Reference}
+\label{classMetadataManager}\index{Metadata\+Manager@{Metadata\+Manager}}
+
+
+{\ttfamily \#include $<$Metadata\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMetadataManager_ae78ad769dbe26e0e2cbab6548f7b6830}{Metadata\+Manager} (std\+::ifstream \&)
+\item 
+void \hyperlink{classMetadataManager_a4eb5b8e9539b2e158cacdd1bca2cacd9}{print} ()
+\item 
+int \hyperlink{classMetadataManager_a497d7031313fd7c43b11228145e927c2}{get\+Size} () const
+\item 
+void \hyperlink{classMetadataManager_ab67fbd206d6baa6e8c7e623564ca5f29}{write\+File} (std\+::ofstream \&)
+\item 
+void \hyperlink{classMetadataManager_a0a5a92ad2a37e118273df2ba15de802c}{set\+List\+Size} ()
+\item 
+int \hyperlink{classMetadataManager_af1bbbc6018d54c4ec84e02829da27b99}{get\+List\+Size} ()
+\item 
+int \hyperlink{classMetadataManager_a5a98daedda8a707f14a39457bdd34354}{get\+Old\+List\+Size} ()
+\item 
+\mbox{\Hypertarget{classMetadataManager_af2a6b59f95e0d6ac70b3424f0ec78e1c}\label{classMetadataManager_af2a6b59f95e0d6ac70b3424f0ec78e1c}} 
+void {\bfseries MetadataM} (std\+::string, std\+::vector$<$ \hyperlink{classMetadata}{Metadata} $>$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Authors\+: Parker True, Chris Fernandez, \& Ilana Macy Date Due\+: May 2, 2021 Assignment\+: Semester Project 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMetadataManager_ae78ad769dbe26e0e2cbab6548f7b6830}\label{classMetadataManager_ae78ad769dbe26e0e2cbab6548f7b6830}} 
+\index{Metadata\+Manager@{Metadata\+Manager}!Metadata\+Manager@{Metadata\+Manager}}
+\index{Metadata\+Manager@{Metadata\+Manager}!Metadata\+Manager@{Metadata\+Manager}}
+\subsubsection{\texorpdfstring{Metadata\+Manager()}{MetadataManager()}}
+{\footnotesize\ttfamily Metadata\+Manager\+::\+Metadata\+Manager (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{file }\end{DoxyParamCaption})}
+
+constructs \hyperlink{classMetadataManager}{Metadata\+Manager} object from input file stream 
+\begin{DoxyParams}{Parameters}
+{\em file} & the file info \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMetadataManager_af1bbbc6018d54c4ec84e02829da27b99}\label{classMetadataManager_af1bbbc6018d54c4ec84e02829da27b99}} 
+\index{Metadata\+Manager@{Metadata\+Manager}!get\+List\+Size@{get\+List\+Size}}
+\index{get\+List\+Size@{get\+List\+Size}!Metadata\+Manager@{Metadata\+Manager}}
+\subsubsection{\texorpdfstring{get\+List\+Size()}{getListSize()}}
+{\footnotesize\ttfamily int Metadata\+Manager\+::get\+List\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get list size \mbox{\Hypertarget{classMetadataManager_a5a98daedda8a707f14a39457bdd34354}\label{classMetadataManager_a5a98daedda8a707f14a39457bdd34354}} 
+\index{Metadata\+Manager@{Metadata\+Manager}!get\+Old\+List\+Size@{get\+Old\+List\+Size}}
+\index{get\+Old\+List\+Size@{get\+Old\+List\+Size}!Metadata\+Manager@{Metadata\+Manager}}
+\subsubsection{\texorpdfstring{get\+Old\+List\+Size()}{getOldListSize()}}
+{\footnotesize\ttfamily int Metadata\+Manager\+::get\+Old\+List\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get old list size \mbox{\Hypertarget{classMetadataManager_a497d7031313fd7c43b11228145e927c2}\label{classMetadataManager_a497d7031313fd7c43b11228145e927c2}} 
+\index{Metadata\+Manager@{Metadata\+Manager}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Metadata\+Manager@{Metadata\+Manager}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily int Metadata\+Manager\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+number of metadata chunks held in metadatas vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMetadataManager_a4eb5b8e9539b2e158cacdd1bca2cacd9}\label{classMetadataManager_a4eb5b8e9539b2e158cacdd1bca2cacd9}} 
+\index{Metadata\+Manager@{Metadata\+Manager}!print@{print}}
+\index{print@{print}!Metadata\+Manager@{Metadata\+Manager}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Metadata\+Manager\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+prints each metadata chunk on a new line, attributes separated by tabs \mbox{\Hypertarget{classMetadataManager_a0a5a92ad2a37e118273df2ba15de802c}\label{classMetadataManager_a0a5a92ad2a37e118273df2ba15de802c}} 
+\index{Metadata\+Manager@{Metadata\+Manager}!set\+List\+Size@{set\+List\+Size}}
+\index{set\+List\+Size@{set\+List\+Size}!Metadata\+Manager@{Metadata\+Manager}}
+\subsubsection{\texorpdfstring{set\+List\+Size()}{setListSize()}}
+{\footnotesize\ttfamily void Metadata\+Manager\+::set\+List\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+calculates list size before writing file \mbox{\Hypertarget{classMetadataManager_ab67fbd206d6baa6e8c7e623564ca5f29}\label{classMetadataManager_ab67fbd206d6baa6e8c7e623564ca5f29}} 
+\index{Metadata\+Manager@{Metadata\+Manager}!write\+File@{write\+File}}
+\index{write\+File@{write\+File}!Metadata\+Manager@{Metadata\+Manager}}
+\subsubsection{\texorpdfstring{write\+File()}{writeFile()}}
+{\footnotesize\ttfamily void Metadata\+Manager\+::write\+File (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{out\+File }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+File} & output file stream\\
+\hline
+\end{DoxyParams}
+writes metadata and metadata header to output .wav file 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Metadata\+Manager.\+h\item 
+Metadata\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{classNoisegate}{}\section{Noisegate$<$ T $>$ Class Template Reference}
+\label{classNoisegate}\index{Noisegate$<$ T $>$@{Noisegate$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Noisegate.\+h$>$}
+
+
+
+Inheritance diagram for Noisegate$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Noisegate$<$ T $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNoisegate_a267d2fcf1167db41c925983401af2e6f}{Noisegate} (int threshold)
+\item 
+void \hyperlink{classNoisegate_a4ab84c99ea64beb3015134756a358eb9}{process\+Buffer} (T $\ast$buffer, int buffer\+Size) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Noisegate$<$ T $>$}
+
+Authors\+: Parker True, Chris Fernandez, \& Ilana Macy Date Due\+: May 2, 2021 Assignment\+: Semester Project
+
+applies echo effect to \hyperlink{classWav}{Wav} based on input delay 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNoisegate_a267d2fcf1167db41c925983401af2e6f}\label{classNoisegate_a267d2fcf1167db41c925983401af2e6f}} 
+\index{Noisegate@{Noisegate}!Noisegate@{Noisegate}}
+\index{Noisegate@{Noisegate}!Noisegate@{Noisegate}}
+\subsubsection{\texorpdfstring{Noisegate()}{Noisegate()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classNoisegate}{Noisegate}$<$ T $>$\+::\hyperlink{classNoisegate}{Noisegate} (\begin{DoxyParamCaption}\item[{int}]{threshold }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+constructs \hyperlink{classNoisegate}{Noisegate} processor 
+\begin{DoxyParams}{Parameters}
+{\em threshold} & threshold specified by user input \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNoisegate_a4ab84c99ea64beb3015134756a358eb9}\label{classNoisegate_a4ab84c99ea64beb3015134756a358eb9}} 
+\index{Noisegate@{Noisegate}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Noisegate@{Noisegate}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{classNoisegate}{Noisegate}$<$ T $>$\+::process\+Buffer (\begin{DoxyParamCaption}\item[{T $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & pointer to audio buffer of type T \\
+\hline
+{\em buffer\+Size} & number of elements in audio buffer\\
+\hline
+\end{DoxyParams}
+applies echo algorithm 
+
+Implements \hyperlink{classIAlgorithm}{I\+Algorithm$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Noisegate.\+h\end{DoxyCompactItemize}

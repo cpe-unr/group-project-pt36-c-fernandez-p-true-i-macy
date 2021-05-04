@@ -1,0 +1,108 @@
+\hypertarget{classMetadata}{}\section{Metadata Class Reference}
+\label{classMetadata}\index{Metadata@{Metadata}}
+
+
+{\ttfamily \#include $<$Metadata.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMetadata_a1877568b5463425c93532224b6bf6950}{Metadata} (std\+::ifstream \&)
+\item 
+std\+::string \hyperlink{classMetadata_a3567498d73b473be0b3d6ba505067f9c}{get\+ID} () const
+\item 
+int \hyperlink{classMetadata_a358f06aba81e46be0f8deb7bb69b1f01}{get\+Size} () const
+\item 
+int \hyperlink{classMetadata_a039be0a66dabf1ea223790066ab6d430}{calc\+Size} ()
+\item 
+std\+::string \hyperlink{classMetadata_a59e34c51d464ab8e123e28abf8ef2e67}{get\+Buffer} () const
+\item 
+void \hyperlink{classMetadata_ae117e7b7973744baeb0faac3db705ba0}{set\+Buffer} (std\+::string)
+\item 
+void \hyperlink{classMetadata_a940cbd072f1b20e8f4c81806bad87f2c}{write\+File} (std\+::ofstream \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Authors\+: Parker True, Chris Fernandez, \& Ilana Macy Date Due\+: May 2, 2021 Assignment\+: Semester Project 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMetadata_a1877568b5463425c93532224b6bf6950}\label{classMetadata_a1877568b5463425c93532224b6bf6950}} 
+\index{Metadata@{Metadata}!Metadata@{Metadata}}
+\index{Metadata@{Metadata}!Metadata@{Metadata}}
+\subsubsection{\texorpdfstring{Metadata()}{Metadata()}}
+{\footnotesize\ttfamily Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{file }\end{DoxyParamCaption})}
+
+constructs one metadata chunk from input file 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMetadata_a039be0a66dabf1ea223790066ab6d430}\label{classMetadata_a039be0a66dabf1ea223790066ab6d430}} 
+\index{Metadata@{Metadata}!calc\+Size@{calc\+Size}}
+\index{calc\+Size@{calc\+Size}!Metadata@{Metadata}}
+\subsubsection{\texorpdfstring{calc\+Size()}{calcSize()}}
+{\footnotesize\ttfamily int Metadata\+::calc\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+-\/ number of bytes in metadata buffer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMetadata_a59e34c51d464ab8e123e28abf8ef2e67}\label{classMetadata_a59e34c51d464ab8e123e28abf8ef2e67}} 
+\index{Metadata@{Metadata}!get\+Buffer@{get\+Buffer}}
+\index{get\+Buffer@{get\+Buffer}!Metadata@{Metadata}}
+\subsubsection{\texorpdfstring{get\+Buffer()}{getBuffer()}}
+{\footnotesize\ttfamily std\+::string Metadata\+::get\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+-\/ metadata buffer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMetadata_a3567498d73b473be0b3d6ba505067f9c}\label{classMetadata_a3567498d73b473be0b3d6ba505067f9c}} 
+\index{Metadata@{Metadata}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Metadata@{Metadata}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily std\+::string Metadata\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+-\/ metadata ID as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMetadata_a358f06aba81e46be0f8deb7bb69b1f01}\label{classMetadata_a358f06aba81e46be0f8deb7bb69b1f01}} 
+\index{Metadata@{Metadata}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Metadata@{Metadata}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily int Metadata\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+-\/ number of bytes in metadata size variable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMetadata_ae117e7b7973744baeb0faac3db705ba0}\label{classMetadata_ae117e7b7973744baeb0faac3db705ba0}} 
+\index{Metadata@{Metadata}!set\+Buffer@{set\+Buffer}}
+\index{set\+Buffer@{set\+Buffer}!Metadata@{Metadata}}
+\subsubsection{\texorpdfstring{set\+Buffer()}{setBuffer()}}
+{\footnotesize\ttfamily void Metadata\+::set\+Buffer (\begin{DoxyParamCaption}\item[{std\+::string}]{buffer }\end{DoxyParamCaption})}
+
+
+\begin{DoxyItemize}
+\item sets metadata buffer when given a string 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & -\/ the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+-\/ when setting buffer we must update list\+Size in \hyperlink{structMetadataHeader}{Metadata\+Header} and file\+Size in \hyperlink{structWavHeader}{Wav\+Header} 
+\end{DoxyNote}
+
+\end{DoxyItemize}\mbox{\Hypertarget{classMetadata_a940cbd072f1b20e8f4c81806bad87f2c}\label{classMetadata_a940cbd072f1b20e8f4c81806bad87f2c}} 
+\index{Metadata@{Metadata}!write\+File@{write\+File}}
+\index{write\+File@{write\+File}!Metadata@{Metadata}}
+\subsubsection{\texorpdfstring{write\+File()}{writeFile()}}
+{\footnotesize\ttfamily void Metadata\+::write\+File (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{out\+File }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+File} & output file stream\\
+\hline
+\end{DoxyParams}
+writes one busy piece 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Metadata.\+h\item 
+Metadata.\+cpp\end{DoxyCompactItemize}

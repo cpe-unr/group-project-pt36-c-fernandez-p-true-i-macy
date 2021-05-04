@@ -1,0 +1,70 @@
+\hypertarget{classEcho}{}\section{Echo$<$ T $>$ Class Template Reference}
+\label{classEcho}\index{Echo$<$ T $>$@{Echo$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Echo.\+h$>$}
+
+
+
+Inheritance diagram for Echo$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Echo$<$ T $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEcho_af348cd7f23248e72046c5d006d3adca7}{Echo} (int delay)
+\item 
+void \hyperlink{classEcho_af5ea3baaa51600cf111f21f931895b46}{process\+Buffer} (T $\ast$buffer, int buffer\+Size) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Echo$<$ T $>$}
+
+Authors\+: Parker True, Chris Fernandez, \& Ilana Macy Date Due\+: May 2, 2021 Assignment\+: Semester Project
+
+applies echo effect to \hyperlink{classWav}{Wav} based on input delay 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEcho_af348cd7f23248e72046c5d006d3adca7}\label{classEcho_af348cd7f23248e72046c5d006d3adca7}} 
+\index{Echo@{Echo}!Echo@{Echo}}
+\index{Echo@{Echo}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{Echo()}{Echo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classEcho}{Echo}$<$ T $>$\+::\hyperlink{classEcho}{Echo} (\begin{DoxyParamCaption}\item[{int}]{delay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+constructs \hyperlink{classEcho}{Echo} processor 
+\begin{DoxyParams}{Parameters}
+{\em delay} & delay specified by user input \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classEcho_af5ea3baaa51600cf111f21f931895b46}\label{classEcho_af5ea3baaa51600cf111f21f931895b46}} 
+\index{Echo@{Echo}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{classEcho}{Echo}$<$ T $>$\+::process\+Buffer (\begin{DoxyParamCaption}\item[{T $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & pointer to audio buffer of type T \\
+\hline
+{\em buffer\+Size} & number of elements in audio buffer\\
+\hline
+\end{DoxyParams}
+applies echo algorithm 
+
+Implements \hyperlink{classIAlgorithm}{I\+Algorithm$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Echo.\+h\end{DoxyCompactItemize}
