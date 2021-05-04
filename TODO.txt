@@ -2,9 +2,8 @@
 ///////////   MUST DO. WORTH 25% OF GRADE!   /////////////
 //////////////////////////////////////////////////////////
 //  Presentation:                                       //
-//  - all methods and classes documented with Doxygen   //
-//  - GitHub pages documentation                        //
-//  - description of design with UML diagram            //
+//  - all methods and classes documented with Doxygen   //                        
+//  - description of design                             //
 //  - describe any challenges                           //
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
@@ -14,12 +13,6 @@
     - write function to write new metadata 
     - must overwrite existing data if IDs match 
     - when done, add function to driver
-    
-    Write to Output .csv File:
-    - make writeCSV() functions for mh and mm
-    - add functions from above to wav.writeCSV()
-    - must include techincal info and metadata
-    - if no metadata exists write "No metadata present" to description
 
     Continue Building the User Interface:
     - implement each new feature as it is completed

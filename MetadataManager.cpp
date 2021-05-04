@@ -76,18 +76,19 @@ int MetadataManager::getOldListSize(){
  * @param Metadata - Vector
 */
 
-void writeCSVMetaM(std::string outFileName, std::vector<Metadata> metadatas){
+void MetadataManager::writeCSVMetaM(std::ofstream& outFile){
 
-    std::ofstream outFile;
-    outFile.open(outFileName);
-    
     for(Metadata& md : metadatas){
         if((md.getID().empty()) || (md.getBuffer().empty())){
-            std::cout << "No metadata present" << std::endl;
+            outFile << "No metadata present" << std::endl;
 
         }
-        outFile << md.getID() << ": " << md.getBuffer() << std::endl; //NEED TO FIGURE OUT WHICH INFO SPECIFICALLY
-    }
+        else{
+            outFile << md.getID() << ", " << md.getBuffer() << std::endl; //NEED TO FIGURE OUT WHICH INFO SPECIFICALLY
+        }
+}
+
+
 
     
 }

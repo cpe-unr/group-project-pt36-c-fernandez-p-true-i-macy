@@ -90,6 +90,7 @@ void Wav::writeFile(std::vector<std::string>& fileNames){
 void Wav::writeCSV(std::vector<Wav*> wavs){
     std::string outFileName;
     bool validName;
+    std::ofstream outFile;
     do{ 
         validName = 1;
         std::cout << std::endl << "NAME OUTPUT FILE: ";
@@ -100,9 +101,17 @@ void Wav::writeCSV(std::vector<Wav*> wavs){
         } else{
             mm.setListSize();
             wh.fileSize += mm.getListSize() - mm.getOldListSize();
-            for(Wav* wav : wavs){
-                // print technical info
-                // print metadata
+            
+            outFile.open(outFileName);
+            if(outFile.is_open()){
+                for(Wav* wav : wavs){
+                    outFile << wh.fileSize << ', ' << wh.fmtSize << ", " << wh.audioFmt << ", " << wh.numChannels << ", " << wh.sampleRate << ", " << wh.byteRate << ", " << wh.blockAlign << ", " << wh.bitsPerSample << ", " << wh.dataSize << ", " << std::endl;
+                    mm.writeCSVMetaM(outFile);
+                    // print metadata
+                }
+            }
+            else{
+                std::cout << "Could not open " << outFileName << std::endl;
             }
         }
     } while(validName == 0);
