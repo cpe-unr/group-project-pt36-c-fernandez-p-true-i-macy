@@ -24,6 +24,7 @@ public:
     Wav* getWav(int) const;
     int getSize() const;
     Wav* selectWav();
+    std::vector<Wav*> getWavs() const;
     std::vector<std::string> getFileNames() const;
 };
 

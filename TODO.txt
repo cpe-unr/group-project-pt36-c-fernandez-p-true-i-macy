@@ -1,7 +1,34 @@
-TODO:
-- continue building the user interface
-- code the template for each processor
-- write to output .csv file
-- implement metadata editing (and check it works in Audacity)
-- debugging
-- make doxygen page and UML diagram
+//////////////////////////////////////////////////////////
+///////////   MUST DO. WORTH 25% OF GRADE!   /////////////
+//////////////////////////////////////////////////////////
+//  Presentation:                                       //
+//  - all methods and classes documented with Doxygen   //
+//  - GitHub pages documentation                        //
+//  - description of design with UML diagram            //
+//  - describe any challenges                           //
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+
+   Implement Metadata Editing:
+    - use mm.print() to display the wav's metadata
+    - write function to write new metadata 
+    - must overwrite existing data if IDs match 
+    - when done, add function to driver
+    
+    Write to Output .csv File:
+    - make writeCSV() functions for mh and mm
+    - add functions from above to wav.writeCSV()
+    - must include techincal info and metadata
+    - if no metadata exists write "No metadata present" to description
+
+    Continue Building the User Interface:
+    - implement each new feature as it is completed
+    - when std::cin is used, make guards for invalid inputs
+    - make sure everything looks good
+
+    Test:
+    - writing new metadata (check in Audacity)
+    - overwriting existing metadata (check in Audacity)
+    - valid and invalid input for all std::cin usages
+    - .csv files after changing metadata
+    - check for memory leaks: valgrind --leak-check=yes ./test audiofiles

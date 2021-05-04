@@ -74,7 +74,14 @@ Wav* WavManager::selectWav(){
 }
 
 /**
- * @returns - address of fileNames vector
+ * @return wavs vector
+*/
+std::vector<Wav*> WavManager::getWavs() const{
+    return wavs;
+}
+
+/**
+ * @returns fileNames vector
 */
 std::vector<std::string> WavManager::getFileNames() const{
     return fileNames;

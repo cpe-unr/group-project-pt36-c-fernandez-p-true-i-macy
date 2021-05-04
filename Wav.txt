@@ -15,8 +15,9 @@ BYTES:          VALUE OR *VARIABLE*:    LOCATION IN WAV CLASS:          NOTES:
 4: char[4]      data                    wav.dataID                      -
 4: int          *dataSize*              wav.dataSize                    total number of bytes in sound data section
 
--               Data:                   data                            class that stores audio data (not yet implemented)
-*dataSize*      *buffer*                data.buffer                     STEREO MAY BE DIFFERENT
+-               Data:                                                                              
+*dataSize*      *buffer*                buffer                          divide dataSize by 2 if file is stereo
+*dataSize/2*    *buffer2*               buffer2                         NULL if file is mono
 
 -               MetadataHeader:         mh                              struct included after Data section if file contains any metadata
 4: char[4]      LIST                    mh.listID                       -

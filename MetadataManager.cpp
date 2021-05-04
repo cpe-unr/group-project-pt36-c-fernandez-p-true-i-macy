@@ -18,7 +18,7 @@ MetadataManager::MetadataManager(std::ifstream& file){
 */
 void MetadataManager::print(){
     for(Metadata& md : metadatas){
-        std::cout << md.getID() << '\t' << md.getSize() << '\t' << md.getBuffer() << std::endl;
+        std::cout << md.getID() << ": " << md.getBuffer() << std::endl;
     }
 }
 

@@ -1,5 +1,5 @@
-#ifndef ALGORITHM_H
-#define ALGORITHM_H
+#ifndef IALGORITHM_H
+#define IALGORITHM_H
 
 #include <math.h>
 #include "Wav.h"
@@ -10,9 +10,9 @@
  * @note LOWER and UPPER are in relation to adjusted value (after substracting ZERO) for unsigned chars
 */
 template<typename T>
-class Algorithm{
+class IAlgorithm{
 public:
     virtual void processBuffer(T* buffer, int bufferSize) = 0;
 };
 
-#endif // PROCESSOR_H
+#endif // IALGORITHM_H

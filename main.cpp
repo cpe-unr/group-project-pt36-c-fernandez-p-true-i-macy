@@ -38,12 +38,9 @@ void fn(){
 }
 
 /**
- * Purpose of function
- * What does it do
- * What does it print
- * @param argc - amount in command line
- * @param argv - filename
- * @return - 0
+ * @param argc number of command line arguments
+ * @param argv array of command line arguments
+ * @return 0
 */
 int main(int argc, char* const argv[]){
     // Read input directory into WavManager object
@@ -53,32 +50,31 @@ int main(int argc, char* const argv[]){
         std::cout << argv[0] << " path (ex: \"./test audiofiles\")" << std::endl;
         return 0;
     }
+
     WavManager wm(argv[1]);
     if(wm.getSize() < 1){
         return 0;
     }
-        ///////////////////////////////////////////////////////////////////////////////////
-        wm.getWav(1)->printMetadata(); // FOR SOME REASON DELETING THIS LINE BREAKS THE APP
-        ///////////////////////////////////////////////////////////////////////////////////
 
     // Main Menu
-    std::cout << "WAVE FILE PROCESSOR" << std::endl;
     Driver d(wm.selectWav());
     int option;
+
     do{
         std::cout << std::endl << "1) Apply Processor" << std::endl << "2) Select New File" 
             << std::endl << "3) Output To '.wav' File" << std::endl << "4) Output To '.csv' File" 
             << std::endl << "5) Edit Metadata" << std::endl << "0) EXIT" << std::endl << "SELECT AN OPTION: ";
         std::cin >> option;
+
         switch(option){
             case 0: break;
             case 1: d.processWav(); break;
             case 2: d.setWav(wm.selectWav()); break;
             case 3: d.outputWavFile(wm.getFileNames()); break;
-            case 4: // d.outputCsvFile(); break;
+            case 4: d.outputCSVFile(wm.getWavs()); break;
             case 5: // d.editMetadata(); break;
             default: std::cout << std::endl << "Please enter a valid option." << std::endl;
-        }
+        }   
     } while(option != 0);
     
     return 0;

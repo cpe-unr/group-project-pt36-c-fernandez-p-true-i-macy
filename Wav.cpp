@@ -84,6 +84,30 @@ void Wav::writeFile(std::vector<std::string>& fileNames){
 }
 
 /**
+ * @details writes to output csv file
+*/
+void Wav::writeCSV(std::vector<Wav*> wavs){
+    std::string outFileName;
+    bool validName;
+    do{ 
+        validName = 1;
+        std::cout << std::endl << "NAME OUTPUT FILE: ";
+        std::string extension(outFileName.end() - 4, outFileName.end());
+        if(extension != ".csv"){
+            validName = 0;
+            std::cout << "Filename must end in \'.csv\'." << std::endl;
+        } else{
+            mm.setListSize();
+            wh.fileSize += mm.getListSize() - mm.getOldListSize();
+            for(Wav* wav : wavs){
+                // print technical info
+                // print metadata
+            }
+        }
+    } while(validName == 0);
+}
+
+/**
  *  prints each metadata on newline
 */
 void Wav::printMetadata(){

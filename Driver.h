@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include "Wav.h"
-#include "Algorithm.h"
+#include "IAlgorithm.h"
 #include "Echo.h"
+#include "Noisegate.h"
+#include "Normalization.h"
 
 class Driver{
 private:
@@ -15,7 +17,7 @@ private:
     */
     template<typename T>
     void processBuffer(Wav* wav){
-        Algorithm<T>* a = getProcessorChoice<T>();
+        IAlgorithm<T>* a = getProcessorChoice<T>();
         a->processBuffer(wav->getBuffer<T>(), wav->getBufferSize() / sizeof(T));
         if(wav->getBuffer2<T>() != NULL){
             a->processBuffer(wav->getBuffer2<T>(), wav->getBufferSize() / sizeof(T));
@@ -27,7 +29,7 @@ private:
      * @returns - the Algorithm object you select
     */ 
     template<typename T>
-    Algorithm<T>* getProcessorChoice(){
+    IAlgorithm<T>* getProcessorChoice(){
         int option;    
         do{
             std::cout << std::endl  << "1) Normalization" << std::endl << "2) Noisegating" << std::endl 
@@ -35,16 +37,22 @@ private:
             std::cin >> option;
             switch(option){
                 case 1: 
-                    std::cout << std::endl << "Normalization processed." << std::endl; 
-                    
-                    break;
-                    // return new Normalization<T>;
-                case 2: std::cout << std::endl << "Noisegate processed." << std::endl; break;
-                    // return new Noisegate<T>;
+                    int max;
+                    std::cout << std::endl << "ENTER MAX: ";
+                    std::cin >> max;
+                    std::cout << std::endl << "Normalization processed." << std::endl;
+                    return new Normalization<T>(max);
+                case 2: 
+                    int threshold;
+                    std::cout << std::endl << "ENTER THRESHOLD: ";
+                    std::cin >> threshold; 
+                    std::cout << std::endl << "Noisegate processed." << std::endl; 
+                    return new Noisegate<T>(threshold);
                 case 3: 
                     int delay;
-                    std::cout << std::endl << "Enter the delay: ";
+                    std::cout << std::endl << "ENTER DELAY: ";
                     std::cin >> delay; 
+                    std::cout << std::endl << "Echo processed." << std::endl;
                     return new Echo<T>(delay);
                 default:
                     std::cout << std::endl << "Please enter a valid option." << std::endl;
@@ -58,6 +66,8 @@ public:
     void setWav(Wav*);
     void processWav();
     void outputWavFile(std::vector<std::string>);
+    void outputCSVFile(std::vector<Wav*>);
+    void editMetadata();
 };
 
 #endif // DRIVER_H
