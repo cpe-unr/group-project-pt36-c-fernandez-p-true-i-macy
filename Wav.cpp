@@ -2,7 +2,7 @@
 
 /**
  * @param fileName - the name of the file 
- *  @details constructs Wav object from input file
+ *  constructs Wav object from input file
 */
 Wav::Wav(const std::string& path, const std::string& fileName){
     std::ifstream file(path + fileName,std::ios::binary | std::ios::in);
@@ -37,7 +37,7 @@ Wav::Wav(const std::string& path, const std::string& fileName){
 
 /**
  * @param fileNames - vector containing list of filenames already in directory
- *  @details writes contents of Wav object to output .wav file
+ *  writes contents of Wav object to output .wav file
 */
 void Wav::writeFile(std::vector<std::string>& fileNames){
     std::string outFileName;
@@ -97,17 +97,16 @@ void Wav::writeCSV(std::vector<Wav*> wavs){
         std::string extension(outFileName.end() - 4, outFileName.end());
         if(extension != ".csv"){
             validName = 0;
-            std::cout << "Filename must end in \'.csv\'." << std::endl;
+            std::cout << "Filename must end in '.csv'." << std::endl;
         } else{
             mm.setListSize();
             wh.fileSize += mm.getListSize() - mm.getOldListSize();
-            
+
             outFile.open(outFileName);
             if(outFile.is_open()){
                 for(Wav* wav : wavs){
-                    outFile << wh.fileSize << ', ' << wh.fmtSize << ", " << wh.audioFmt << ", " << wh.numChannels << ", " << wh.sampleRate << ", " << wh.byteRate << ", " << wh.blockAlign << ", " << wh.bitsPerSample << ", " << wh.dataSize << ", " << std::endl;
+                    outFile << wh.fileSize << ", " << wh.fmtSize << ", " << wh.audioFmt << ", " << wh.numChannels << ", " << wh.sampleRate << ", " << wh.byteRate << ", " << wh.blockAlign << ", " << wh.bitsPerSample << ", " << wh.dataSize << ", " << std::endl;
                     mm.writeCSVMetaM(outFile);
-                    // print metadata
                 }
             }
             else{
@@ -118,14 +117,13 @@ void Wav::writeCSV(std::vector<Wav*> wavs){
 }
 
 /**
- *  @details prints each metadata on newline
+ *  prints each metadata on newline
 */
 void Wav::printMetadata(){
     mm.print();
 }
 
 /**
- * @details gets the name of the .wav file
  *  @returns - name of .wav file
 */
 std::string Wav::getFileName() const{
@@ -133,7 +131,6 @@ std::string Wav::getFileName() const{
 }
 
 /**
- * @details gets the size of each unsigned char buffer
  * @returns - size of (each) unsigned char buffer
 */
 int Wav::getBufferSize() const{
@@ -141,11 +138,17 @@ int Wav::getBufferSize() const{
 }
 
 /**
- * @details gets the number of bits per sample size
  * @returns - number of bits per sample
 */
 int Wav::getBitsPerSample() const{
     return wh.bitsPerSample;
+}
+
+/**
+ * @details metadata editing process
+*/
+void Wav::editMetadata(){
+    mm.editMetadata();
 }
 
 /**

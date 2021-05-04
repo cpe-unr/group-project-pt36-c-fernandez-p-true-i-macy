@@ -26,6 +26,7 @@ public:
     void setListSize();
     int getListSize();
     int getOldListSize();
+    void editMetadata();
     void writeCSVMetaM(std::ofstream&);
 };
 

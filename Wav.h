@@ -28,9 +28,9 @@ public:
     std::string getFileName() const;
     int getBitsPerSample() const;
     int getBufferSize() const;
+    void editMetadata();
 
     /**
-     * @details gets the pointer to the buffer of type T
      * @returns - pointer to buffer of type T
      */ 
     template<typename T>
@@ -39,7 +39,6 @@ public:
     }
 
     /**
-     * @details gets the pointer to the second buffer of Type T
      * @returns - pointer to buffer2 of type T
      */ 
     template<typename T>

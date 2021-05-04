@@ -1,3 +1,4 @@
+
 /**
  * Authors: Parker True, Chris Fernandez, & Ilana Macy
  * Date Due: May 2, 2021
@@ -72,7 +73,7 @@ int main(int argc, char* const argv[]){
             case 2: d.setWav(wm.selectWav()); break;
             case 3: d.outputWavFile(wm.getFileNames()); break;
             case 4: d.outputCSVFile(wm.getWavs()); break;
-            case 5: // d.editMetadata(); break;
+            case 5: d.editMetadata(); break;
             default: std::cout << std::endl << "Please enter a valid option." << std::endl;
         }   
     } while(option != 0);

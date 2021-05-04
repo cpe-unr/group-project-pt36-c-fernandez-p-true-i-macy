@@ -19,12 +19,16 @@ private:
 public:
     Metadata() = default;
     Metadata(std::ifstream&);
+    Metadata(char*, std::string);
     std::string getID() const;
     int getSize() const;
     int calcSize();
     std::string getBuffer() const;
+    void setID(char[4]);
     void setBuffer(std::string);
     void writeFile(std::ofstream&);
+    void setSize(int);
+    int getBufferSize() const;
 };
 
 #endif //METADATA_H

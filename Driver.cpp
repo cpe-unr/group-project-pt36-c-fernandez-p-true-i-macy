@@ -35,9 +35,11 @@ void Driver::outputCSVFile(std::vector<Wav*> wavs){
     wav->writeCSV(wavs);
 }
 
+//////////////////////////////////////////
 /**
  * @details edit metadata
 */
 void Driver::editMetadata(){
-    
+    wav->editMetadata();
 }
+///////////////////////////////////////////
