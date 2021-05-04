@@ -17,8 +17,13 @@ MetadataManager::MetadataManager(std::ifstream& file){
  *  @details prints each metadata chunk on a new line, attributes separated by tabs
 */
 void MetadataManager::print(){
+    int i = 0;
     for(Metadata& md : metadatas){
         std::cout << md.getID() << ": " << md.getBuffer() << std::endl;
+        if(md.getID() == md.getID()){
+            //COME BACK
+        }
+        i++;
     }
 }
 
@@ -63,4 +68,25 @@ int MetadataManager::getListSize(){
 */
 int MetadataManager::getOldListSize(){
     return oldListSize;
+}
+
+
+/**
+ * @details Writing the CSV information for the MetadataHeader
+ * @param Metadata - Vector
+*/
+void writeCSVMetaM(std::string outFileName, std::vector<Metadata> metadatas){
+
+    std::ofstream outFile;
+    outFile.open(outFileName);
+    
+    for(Metadata& md : metadatas){
+        if((md.getID().empty()) || (md.getBuffer().empty())){
+            std::cout << "No metadata present" << std::endl;
+
+        }
+        outFile << md.getID() << ": " << md.getBuffer() << std::endl; //NEED TO FIGURE OUT WHICH INFO SPECIFICALLY
+    }
+
+    
 }

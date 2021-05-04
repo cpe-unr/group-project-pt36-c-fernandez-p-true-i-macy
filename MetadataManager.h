@@ -26,6 +26,7 @@ public:
     void setListSize();
     int getListSize();
     int getOldListSize();
+    void MetadataM(std::string, std::vector<Metadata>);
 };
 
 #endif // METADATA_MANAGER_H
