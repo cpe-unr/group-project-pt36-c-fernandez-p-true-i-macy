@@ -1,0 +1,116 @@
+\hypertarget{classWavManager}{}\section{Wav\+Manager Class Reference}
+\label{classWavManager}\index{Wav\+Manager@{Wav\+Manager}}
+
+
+{\ttfamily \#include $<$Wav\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWavManager_ae9e3c60a5f1744cf93d8c5a7e81ec279}{Wav\+Manager} (char $\ast$)
+\item 
+virtual \hyperlink{classWavManager_ada2c41fa0b1f388b3d90ade85fd21f6a}{$\sim$\+Wav\+Manager} ()
+\item 
+\hyperlink{classWav}{Wav} $\ast$ \hyperlink{classWavManager_a81286b348dd7d7969cfffebc0197e457}{get\+Wav} (int) const
+\item 
+int \hyperlink{classWavManager_a92aeb164533efeefd7d636b3da5b2828}{get\+Size} () const
+\item 
+\hyperlink{classWav}{Wav} $\ast$ \hyperlink{classWavManager_a30d87e1568d7fcdcf81089c8125819d1}{select\+Wav} ()
+\item 
+std\+::vector$<$ \hyperlink{classWav}{Wav} $\ast$ $>$ \hyperlink{classWavManager_af4ca861d89e3aceab92629958223784a}{get\+Wavs} () const
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classWavManager_a505c8ecc7ae96bc5c6faad602ac26a6c}{get\+File\+Names} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Authors\+: Parker True, Chris Fernandez, \& Ilana Macy Date Due\+: May 2, 2021 Assignment\+: Semester Project
+
+
+\begin{DoxyItemize}
+\item manages input, storage, and output for \hyperlink{classWav}{Wav} files 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWavManager_ae9e3c60a5f1744cf93d8c5a7e81ec279}\label{classWavManager_ae9e3c60a5f1744cf93d8c5a7e81ec279}} 
+\index{Wav\+Manager@{Wav\+Manager}!Wav\+Manager@{Wav\+Manager}}
+\index{Wav\+Manager@{Wav\+Manager}!Wav\+Manager@{Wav\+Manager}}
+\subsubsection{\texorpdfstring{Wav\+Manager()}{WavManager()}}
+{\footnotesize\ttfamily Wav\+Manager\+::\+Wav\+Manager (\begin{DoxyParamCaption}\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & -\/ the directory path it should take\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item construct \hyperlink{classWavManager}{Wav\+Manager} object given path to directory of .wav files 
+\end{DoxyItemize}\mbox{\Hypertarget{classWavManager_ada2c41fa0b1f388b3d90ade85fd21f6a}\label{classWavManager_ada2c41fa0b1f388b3d90ade85fd21f6a}} 
+\index{Wav\+Manager@{Wav\+Manager}!````~Wav\+Manager@{$\sim$\+Wav\+Manager}}
+\index{````~Wav\+Manager@{$\sim$\+Wav\+Manager}!Wav\+Manager@{Wav\+Manager}}
+\subsubsection{\texorpdfstring{$\sim$\+Wav\+Manager()}{~WavManager()}}
+{\footnotesize\ttfamily Wav\+Manager\+::$\sim$\+Wav\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyItemize}
+\item destructs \hyperlink{classWavManager}{Wav\+Manager} and deletes all \hyperlink{classWav}{Wav} files in wavs vector 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWavManager_a505c8ecc7ae96bc5c6faad602ac26a6c}\label{classWavManager_a505c8ecc7ae96bc5c6faad602ac26a6c}} 
+\index{Wav\+Manager@{Wav\+Manager}!get\+File\+Names@{get\+File\+Names}}
+\index{get\+File\+Names@{get\+File\+Names}!Wav\+Manager@{Wav\+Manager}}
+\subsubsection{\texorpdfstring{get\+File\+Names()}{getFileNames()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Wav\+Manager\+::get\+File\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+file\+Names vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWavManager_a92aeb164533efeefd7d636b3da5b2828}\label{classWavManager_a92aeb164533efeefd7d636b3da5b2828}} 
+\index{Wav\+Manager@{Wav\+Manager}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Wav\+Manager@{Wav\+Manager}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily int Wav\+Manager\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+-\/ size of wavs vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWavManager_a81286b348dd7d7969cfffebc0197e457}\label{classWavManager_a81286b348dd7d7969cfffebc0197e457}} 
+\index{Wav\+Manager@{Wav\+Manager}!get\+Wav@{get\+Wav}}
+\index{get\+Wav@{get\+Wav}!Wav\+Manager@{Wav\+Manager}}
+\subsubsection{\texorpdfstring{get\+Wav()}{getWav()}}
+{\footnotesize\ttfamily \hyperlink{classWav}{Wav} $\ast$ Wav\+Manager\+::get\+Wav (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & -\/ index i \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ pointer to \hyperlink{classWav}{Wav} object at index i in wavs vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWavManager_af4ca861d89e3aceab92629958223784a}\label{classWavManager_af4ca861d89e3aceab92629958223784a}} 
+\index{Wav\+Manager@{Wav\+Manager}!get\+Wavs@{get\+Wavs}}
+\index{get\+Wavs@{get\+Wavs}!Wav\+Manager@{Wav\+Manager}}
+\subsubsection{\texorpdfstring{get\+Wavs()}{getWavs()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{classWav}{Wav} $\ast$ $>$ Wav\+Manager\+::get\+Wavs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+wavs vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWavManager_a30d87e1568d7fcdcf81089c8125819d1}\label{classWavManager_a30d87e1568d7fcdcf81089c8125819d1}} 
+\index{Wav\+Manager@{Wav\+Manager}!select\+Wav@{select\+Wav}}
+\index{select\+Wav@{select\+Wav}!Wav\+Manager@{Wav\+Manager}}
+\subsubsection{\texorpdfstring{select\+Wav()}{selectWav()}}
+{\footnotesize\ttfamily \hyperlink{classWav}{Wav} $\ast$ Wav\+Manager\+::select\+Wav (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+-\/ pointer to the \hyperlink{classWav}{Wav} object you select 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wav\+Manager.\+h\item 
+Wav\+Manager.\+cpp\end{DoxyCompactItemize}

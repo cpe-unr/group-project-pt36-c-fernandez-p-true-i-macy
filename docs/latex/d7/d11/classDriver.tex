@@ -1,0 +1,70 @@
+\hypertarget{classDriver}{}\section{Driver Class Reference}
+\label{classDriver}\index{Driver@{Driver}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDriver_add5a6c755a1e845cc3d7c0cd7e7fbc17}\label{classDriver_add5a6c755a1e845cc3d7c0cd7e7fbc17}} 
+{\bfseries Driver} (\hyperlink{classWav}{Wav} $\ast$wav)
+\item 
+void \hyperlink{classDriver_a5d58141395b60701ae65d3623c3053f6}{set\+Wav} (\hyperlink{classWav}{Wav} $\ast$)
+\item 
+void \hyperlink{classDriver_a7b8110d43dc29e26fec11f4120693714}{process\+Wav} ()
+\item 
+void \hyperlink{classDriver_a43544d196cd4055dced0c0ef654ffd62}{output\+Wav\+File} (std\+::vector$<$ std\+::string $>$)
+\item 
+void \hyperlink{classDriver_ab6ac2a7b99e934cf8a3c5ebe229eb63b}{output\+C\+S\+V\+File} (std\+::vector$<$ \hyperlink{classWav}{Wav} $\ast$$>$)
+\item 
+void \hyperlink{classDriver_a23d1437a01106d70634aed9271b44e49}{edit\+Metadata} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDriver_a23d1437a01106d70634aed9271b44e49}\label{classDriver_a23d1437a01106d70634aed9271b44e49}} 
+\index{Driver@{Driver}!edit\+Metadata@{edit\+Metadata}}
+\index{edit\+Metadata@{edit\+Metadata}!Driver@{Driver}}
+\subsubsection{\texorpdfstring{edit\+Metadata()}{editMetadata()}}
+{\footnotesize\ttfamily void Driver\+::edit\+Metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+edit metadata \mbox{\Hypertarget{classDriver_ab6ac2a7b99e934cf8a3c5ebe229eb63b}\label{classDriver_ab6ac2a7b99e934cf8a3c5ebe229eb63b}} 
+\index{Driver@{Driver}!output\+C\+S\+V\+File@{output\+C\+S\+V\+File}}
+\index{output\+C\+S\+V\+File@{output\+C\+S\+V\+File}!Driver@{Driver}}
+\subsubsection{\texorpdfstring{output\+C\+S\+V\+File()}{outputCSVFile()}}
+{\footnotesize\ttfamily void Driver\+::output\+C\+S\+V\+File (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \hyperlink{classWav}{Wav} $\ast$$>$}]{wavs }\end{DoxyParamCaption})}
+
+writes \hyperlink{classWav}{Wav} file to output .csv file 
+\begin{DoxyParams}{Parameters}
+{\em wavs} & vector of pointer to \hyperlink{classWav}{Wav} files in directory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDriver_a43544d196cd4055dced0c0ef654ffd62}\label{classDriver_a43544d196cd4055dced0c0ef654ffd62}} 
+\index{Driver@{Driver}!output\+Wav\+File@{output\+Wav\+File}}
+\index{output\+Wav\+File@{output\+Wav\+File}!Driver@{Driver}}
+\subsubsection{\texorpdfstring{output\+Wav\+File()}{outputWavFile()}}
+{\footnotesize\ttfamily void Driver\+::output\+Wav\+File (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{file\+Names }\end{DoxyParamCaption})}
+
+writes \hyperlink{classWav}{Wav} file to output .wav file 
+\begin{DoxyParams}{Parameters}
+{\em files} & vector of filenames in directory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDriver_a7b8110d43dc29e26fec11f4120693714}\label{classDriver_a7b8110d43dc29e26fec11f4120693714}} 
+\index{Driver@{Driver}!process\+Wav@{process\+Wav}}
+\index{process\+Wav@{process\+Wav}!Driver@{Driver}}
+\subsubsection{\texorpdfstring{process\+Wav()}{processWav()}}
+{\footnotesize\ttfamily void Driver\+::process\+Wav (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+handles \hyperlink{classWav}{Wav} processing sequence \mbox{\Hypertarget{classDriver_a5d58141395b60701ae65d3623c3053f6}\label{classDriver_a5d58141395b60701ae65d3623c3053f6}} 
+\index{Driver@{Driver}!set\+Wav@{set\+Wav}}
+\index{set\+Wav@{set\+Wav}!Driver@{Driver}}
+\subsubsection{\texorpdfstring{set\+Wav()}{setWav()}}
+{\footnotesize\ttfamily void Driver\+::set\+Wav (\begin{DoxyParamCaption}\item[{\hyperlink{classWav}{Wav} $\ast$}]{wav }\end{DoxyParamCaption})}
+
+
+\begin{DoxyItemize}
+\item sets \hyperlink{classWav}{Wav} pointer in \hyperlink{classDriver}{Driver} 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Driver.\+h\item 
+Driver.\+cpp\end{DoxyCompactItemize}

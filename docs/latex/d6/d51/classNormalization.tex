@@ -1,0 +1,98 @@
+\hypertarget{classNormalization}{}\section{Normalization$<$ T $>$ Class Template Reference}
+\label{classNormalization}\index{Normalization$<$ T $>$@{Normalization$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Normalization.\+h$>$}
+
+
+
+Inheritance diagram for Normalization$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{d2/d5e/classNormalization__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Normalization$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{de/d74/classNormalization__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNormalization_a70f7d23e000cbdd8c0067a981b44ebe9}{Normalization} (int max)
+\item 
+int \hyperlink{classNormalization_a0ca4f15e6f0d23ec77c2946583e248b6}{find\+Max} (T $\ast$buffer, int buffer\+Size)
+\item 
+void \hyperlink{classNormalization_a0f441de817c3dbb8348cb9dfd66879d7}{process\+Buffer} (T $\ast$buffer, int buffer\+Size) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Normalization$<$ T $>$}
+
+Authors\+: Parker True, Chris Fernandez, \& Ilana Macy Date Due\+: May 2, 2021 Assignment\+: Semester Project
+
+applies normalization effect to \hyperlink{classWav}{Wav} based on input delay 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNormalization_a70f7d23e000cbdd8c0067a981b44ebe9}\label{classNormalization_a70f7d23e000cbdd8c0067a981b44ebe9}} 
+\index{Normalization@{Normalization}!Normalization@{Normalization}}
+\index{Normalization@{Normalization}!Normalization@{Normalization}}
+\subsubsection{\texorpdfstring{Normalization()}{Normalization()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classNormalization}{Normalization}$<$ T $>$\+::\hyperlink{classNormalization}{Normalization} (\begin{DoxyParamCaption}\item[{int}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+constructs \hyperlink{classNormalization}{Normalization} processor 
+\begin{DoxyParams}{Parameters}
+{\em new\+Max} & new maximum specified by user input \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNormalization_a0ca4f15e6f0d23ec77c2946583e248b6}\label{classNormalization_a0ca4f15e6f0d23ec77c2946583e248b6}} 
+\index{Normalization@{Normalization}!find\+Max@{find\+Max}}
+\index{find\+Max@{find\+Max}!Normalization@{Normalization}}
+\subsubsection{\texorpdfstring{find\+Max()}{findMax()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \hyperlink{classNormalization}{Normalization}$<$ T $>$\+::find\+Max (\begin{DoxyParamCaption}\item[{T $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & pointer to audio buffer of type T \\
+\hline
+{\em buffer\+Size} & number of elements in audio buffer\\
+\hline
+\end{DoxyParams}
+finds maximum value in buffer \mbox{\Hypertarget{classNormalization_a0f441de817c3dbb8348cb9dfd66879d7}\label{classNormalization_a0f441de817c3dbb8348cb9dfd66879d7}} 
+\index{Normalization@{Normalization}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Normalization@{Normalization}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{classNormalization}{Normalization}$<$ T $>$\+::process\+Buffer (\begin{DoxyParamCaption}\item[{T $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & pointer to audio buffer of type T \\
+\hline
+{\em buffer\+Size} & number of elements in audio buffer\\
+\hline
+\end{DoxyParams}
+applies echo algorithm 
+
+Implements \hyperlink{classIAlgorithm}{I\+Algorithm$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Normalization.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,137 @@
+\hypertarget{classWav}{}\section{Wav Class Reference}
+\label{classWav}\index{Wav@{Wav}}
+
+
+{\ttfamily \#include $<$Wav.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWav_a573605770be554fbf416e72e0f9109fe}{Wav} (const std\+::string \&, const std\+::string \&)
+\item 
+virtual \hyperlink{classWav_a1510b246ba121b103a60b8e7839af25f}{$\sim$\+Wav} ()
+\item 
+\mbox{\Hypertarget{classWav_a038085c64b750429419523e58cef4a90}\label{classWav_a038085c64b750429419523e58cef4a90}} 
+void {\bfseries destruct\+Data} ()
+\item 
+void \hyperlink{classWav_a6569b629ca9e46d0093f8bfd23d92735}{write\+File} (std\+::vector$<$ std\+::string $>$ \&)
+\item 
+void \hyperlink{classWav_a6f8162ea823152663dd7f556612c220e}{write\+C\+SV} (std\+::vector$<$ \hyperlink{classWav}{Wav} $\ast$$>$)
+\item 
+void \hyperlink{classWav_a52240b5a0803b1fd074b98d79b51e589}{print\+Metadata} ()
+\item 
+std\+::string \hyperlink{classWav_ab091dcb5c70b025779d4073e344e60f2}{get\+File\+Name} () const
+\item 
+int \hyperlink{classWav_af3aaf1636defa1288d866725e39c7f69}{get\+Bits\+Per\+Sample} () const
+\item 
+int \hyperlink{classWav_a71fdfa1d9f5e7c1b86f07bbff4249dca}{get\+Buffer\+Size} () const
+\item 
+{\footnotesize template$<$typename T $>$ }\\T $\ast$ \hyperlink{classWav_ac236b8cc7453f5dd6cc0623b5c200bee}{get\+Buffer} () const
+\item 
+{\footnotesize template$<$typename T $>$ }\\T $\ast$ \hyperlink{classWav_aca22bfd496dad7ecf80e17a691ab1c4c}{get\+Buffer2} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Authors\+: Parker True, Chris Fernandez, \& Ilana Macy Date Due\+: May 2, 2021 Assignment\+: Semester Project 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWav_a573605770be554fbf416e72e0f9109fe}\label{classWav_a573605770be554fbf416e72e0f9109fe}} 
+\index{Wav@{Wav}!Wav@{Wav}}
+\index{Wav@{Wav}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{Wav()}{Wav()}}
+{\footnotesize\ttfamily Wav\+::\+Wav (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & -\/ the name of the file constructs \hyperlink{classWav}{Wav} object from input file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWav_a1510b246ba121b103a60b8e7839af25f}\label{classWav_a1510b246ba121b103a60b8e7839af25f}} 
+\index{Wav@{Wav}!````~Wav@{$\sim$\+Wav}}
+\index{````~Wav@{$\sim$\+Wav}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{$\sim$\+Wav()}{~Wav()}}
+{\footnotesize\ttfamily Wav\+::$\sim$\+Wav (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyItemize}
+\item destruct \hyperlink{classWav}{Wav} object and delete buffer 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWav_af3aaf1636defa1288d866725e39c7f69}\label{classWav_af3aaf1636defa1288d866725e39c7f69}} 
+\index{Wav@{Wav}!get\+Bits\+Per\+Sample@{get\+Bits\+Per\+Sample}}
+\index{get\+Bits\+Per\+Sample@{get\+Bits\+Per\+Sample}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{get\+Bits\+Per\+Sample()}{getBitsPerSample()}}
+{\footnotesize\ttfamily int Wav\+::get\+Bits\+Per\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+-\/ number of bits per sample 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWav_ac236b8cc7453f5dd6cc0623b5c200bee}\label{classWav_ac236b8cc7453f5dd6cc0623b5c200bee}} 
+\index{Wav@{Wav}!get\+Buffer@{get\+Buffer}}
+\index{get\+Buffer@{get\+Buffer}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{get\+Buffer()}{getBuffer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T$\ast$ Wav\+::get\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+-\/ pointer to buffer of type T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWav_aca22bfd496dad7ecf80e17a691ab1c4c}\label{classWav_aca22bfd496dad7ecf80e17a691ab1c4c}} 
+\index{Wav@{Wav}!get\+Buffer2@{get\+Buffer2}}
+\index{get\+Buffer2@{get\+Buffer2}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{get\+Buffer2()}{getBuffer2()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T$\ast$ Wav\+::get\+Buffer2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+-\/ pointer to buffer2 of type T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWav_a71fdfa1d9f5e7c1b86f07bbff4249dca}\label{classWav_a71fdfa1d9f5e7c1b86f07bbff4249dca}} 
+\index{Wav@{Wav}!get\+Buffer\+Size@{get\+Buffer\+Size}}
+\index{get\+Buffer\+Size@{get\+Buffer\+Size}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{get\+Buffer\+Size()}{getBufferSize()}}
+{\footnotesize\ttfamily int Wav\+::get\+Buffer\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+-\/ size of (each) unsigned char buffer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWav_ab091dcb5c70b025779d4073e344e60f2}\label{classWav_ab091dcb5c70b025779d4073e344e60f2}} 
+\index{Wav@{Wav}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{get\+File\+Name()}{getFileName()}}
+{\footnotesize\ttfamily std\+::string Wav\+::get\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+-\/ name of .wav file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWav_a52240b5a0803b1fd074b98d79b51e589}\label{classWav_a52240b5a0803b1fd074b98d79b51e589}} 
+\index{Wav@{Wav}!print\+Metadata@{print\+Metadata}}
+\index{print\+Metadata@{print\+Metadata}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{print\+Metadata()}{printMetadata()}}
+{\footnotesize\ttfamily void Wav\+::print\+Metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+prints each metadata on newline \mbox{\Hypertarget{classWav_a6f8162ea823152663dd7f556612c220e}\label{classWav_a6f8162ea823152663dd7f556612c220e}} 
+\index{Wav@{Wav}!write\+C\+SV@{write\+C\+SV}}
+\index{write\+C\+SV@{write\+C\+SV}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{write\+C\+S\+V()}{writeCSV()}}
+{\footnotesize\ttfamily void Wav\+::write\+C\+SV (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \hyperlink{classWav}{Wav} $\ast$$>$}]{wavs }\end{DoxyParamCaption})}
+
+writes to output csv file \mbox{\Hypertarget{classWav_a6569b629ca9e46d0093f8bfd23d92735}\label{classWav_a6569b629ca9e46d0093f8bfd23d92735}} 
+\index{Wav@{Wav}!write\+File@{write\+File}}
+\index{write\+File@{write\+File}!Wav@{Wav}}
+\subsubsection{\texorpdfstring{write\+File()}{writeFile()}}
+{\footnotesize\ttfamily void Wav\+::write\+File (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{file\+Names }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Names} & -\/ vector containing list of filenames already in directory writes contents of \hyperlink{classWav}{Wav} object to output .wav file \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wav.\+h\item 
+Wav.\+cpp\end{DoxyCompactItemize}
