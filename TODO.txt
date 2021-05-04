@@ -1,6 +1,7 @@
 TODO:
 - continue building the user interface
 - code the template for each processor
-- write to CSV file
-- write to output .wav file
--check for memory leaks: valgrind --leak-check=yes ./test audiofiles
+- write to output .csv file
+- implement metadata editing (and check it works in Audacity)
+- debugging
+- make doxygen page and UML diagram

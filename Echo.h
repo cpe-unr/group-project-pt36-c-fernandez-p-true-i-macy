@@ -10,23 +10,35 @@
 #include "Algorithm.h"
 
 /**
- * @details - applies echo effect to Wav based on input delay
- * @note - bounds LOWER and UPPER are available from Algorithm inheritance
+ * @details applies echo effect to Wav based on input delay
 */
 template<typename T>
 class Echo : public Algorithm<T>{
 private:
-	int newDelay;
+	int newDelay, UPPER, LOWER, ZERO;
 public:
-	explicit Echo(int delay) : newDelay(delay){}
+	/**
+	 * @details constructs Echo processor
+	 * @param delay delay specified by user input
+	*/
+	explicit Echo(int delay) : newDelay(delay){
+		LOWER = pow(2, sizeof(T) * 8 - 1) * -1;
+        UPPER = (LOWER * -1) - 1;
+        if(sizeof(T) == 1){
+            ZERO = 128;
+        } else{
+            ZERO = 0;
+        }
+	}
 
 	/**
-	 * @param - pointer to audio buffer of type T
-	 * @param - number of elements in audio buffer
-	 * @details - applies echo algorithm
+	 * @param buffer pointer to audio buffer of type T
+	 * @param bufferSize number of elements in audio buffer
+	 * @details applies echo algorithm
 	*/
 	void processBuffer(T *buffer, int bufferSize) override{
-        std::cout << "Echo processed." << std::endl;
+		// ALGORITHM
+		std::cout << "Echo processed" << std::endl;
 	}
 };
 
@@ -40,11 +52,11 @@ public:
 	float val;
 
 	for(int i = 0; i < bufferSize - newDelay; i++){
-		adj_i = (float)(buffer[i] - 128);
-		adj_delayed_i = (float)(buffer[i + newDelay] - 128);
-		val = adj_i * echoLevel + adj_delayed_i * 0.5f + 128;
+		adj_i = (float)(buffer[i] - ZERO);
+		adj_delayed_i = (float)(buffer[i + newDelay] - ZERO);
+		val = adj_i * echoLevel + adj_delayed_i * 0.5f + ZERO;
 		buffer[i + newDelay] = (unsigned char)(round(val));
 	}
 
 //.5 is the scale factor
-// 128 is the zero*/
+// ZERO = 128*/

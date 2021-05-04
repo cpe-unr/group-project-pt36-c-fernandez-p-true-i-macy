@@ -6,22 +6,13 @@
 
 /**
  * @details - base template for processor algorithms
- * @note - must add 128 after processing unsigned char buffer
+ * @note - ZERO is located at 128 for unsigned chars, 0 for everything else
+ * @note LOWER and UPPER are in relation to adjusted value (after substracting ZERO) for unsigned chars
 */
 template<typename T>
 class Algorithm{
-private:
-    int LOWER, UPPER;
 public:
     virtual void processBuffer(T* buffer, int bufferSize) = 0;
-    
-    /**
-     * @details - constructs algorithm object and calculates min and max from T
-    */
-    Algorithm(){
-        LOWER = pow(2, sizeof(T)-1) * -1;
-        UPPER = (LOWER * -1) - 1;
-    }
 };
 
 #endif // PROCESSOR_H

@@ -18,3 +18,10 @@ void Driver::processWav(){
         processBuffer<short>(wav);
     }
 }
+
+/**
+ * @details - writes Wav file to output .wav file
+*/
+void Driver::outputWavFile(std::vector<std::string> fileNames){
+    wav->writeFile(fileNames);
+}

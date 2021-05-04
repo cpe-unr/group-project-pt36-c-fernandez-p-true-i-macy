@@ -14,6 +14,7 @@
 
 class MetadataManager{
 private:
+    int oldListSize;
     MetadataHeader mh;
     std::vector<Metadata> metadatas;
 public:
@@ -21,6 +22,10 @@ public:
     MetadataManager(std::ifstream&);
     void print();
     int getSize() const;
+    void writeFile(std::ofstream&);
+    void setListSize();
+    int getListSize();
+    int getOldListSize();
 };
 
 #endif // METADATA_MANAGER_H

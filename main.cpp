@@ -67,13 +67,16 @@ int main(int argc, char* const argv[]){
     int option;
     do{
         std::cout << std::endl << "1) Apply Processor" << std::endl << "2) Select New File" 
-            << std::endl << "3) OPTION3" << std::endl << "0) EXIT" << std::endl << "SELECT AN OPTION: ";
+            << std::endl << "3) Output To '.wav' File" << std::endl << "4) Output To '.csv' File" 
+            << std::endl << "5) Edit Metadata" << std::endl << "0) EXIT" << std::endl << "SELECT AN OPTION: ";
         std::cin >> option;
         switch(option){
             case 0: break;
             case 1: d.processWav(); break;
             case 2: d.setWav(wm.selectWav()); break;
-            case 3: 
+            case 3: d.outputWavFile(wm.getFileNames()); break;
+            case 4: // d.outputCsvFile(); break;
+            case 5: // d.editMetadata(); break;
             default: std::cout << std::endl << "Please enter a valid option." << std::endl;
         }
     } while(option != 0);

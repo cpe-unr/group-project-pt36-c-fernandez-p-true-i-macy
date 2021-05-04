@@ -1,4 +1,4 @@
-test: main.cpp Wav.a WavManager.o Noisegate.o Driver.o Echo.h Algorithm.h
+test: main.cpp Wav.a WavManager.o Noisegate.o Driver.o Algorithm.h
 	g++ -std=c++11 -o test main.cpp Wav.a WavManager.o Noisegate.o Driver.o
 
 Wav.a: Wav.o MetadataManager.o Metadata.o
@@ -19,10 +19,7 @@ WavManager.o: WavManager.cpp WavManager.h
 Noisegate.o: Noisegate.cpp Noisegate.h
 	g++ -std=c++11 -c Noisegate.cpp
 
-#Echo.o: Echo.cpp Echo.h
-#	g++ -std=c++11 -c Echo.cpp
-
-Driver.o: Driver.cpp Driver.h
+Driver.o: Driver.cpp Driver.h Echo.h
 	g++ -std=c++11 -c Driver.cpp
 
 clean:

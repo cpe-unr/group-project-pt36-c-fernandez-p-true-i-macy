@@ -1,8 +1,8 @@
 #include "MetadataManager.h"
 
 /**
- *  @details - constructs MetadataManager object from input file stream
- * @param file - the file info
+ *  @details constructs MetadataManager object from input file stream
+ * @param file the file info
 */
 MetadataManager::MetadataManager(std::ifstream& file){
     file.read((char*)&mh, sizeof(MetadataHeader));
@@ -14,7 +14,7 @@ MetadataManager::MetadataManager(std::ifstream& file){
 }
 
 /**
- *  prints each metadata chunk on a new line, attributes separated by tabs
+ *  @details prints each metadata chunk on a new line, attributes separated by tabs
 */
 void MetadataManager::print(){
     for(Metadata& md : metadatas){
@@ -23,8 +23,44 @@ void MetadataManager::print(){
 }
 
 /** 
- * @returns - number of metadata chunks held in metadatas vector
+ * @returns number of metadata chunks held in metadatas vector
 */
 int MetadataManager::getSize() const{
     return metadatas.size();
+}
+
+/**
+ * @param outFile output file stream
+ * @details writes metadata and metadata header to output .wav file
+*/
+void MetadataManager::writeFile(std::ofstream& outFile){
+    outFile.write((char*)&mh, sizeof(MetadataHeader));
+    for(Metadata m : metadatas){
+        m.writeFile(outFile);
+    }
+}
+
+/**
+ * @details calculates list size before writing file
+*/
+void MetadataManager::setListSize(){
+    oldListSize = mh.listSize;
+    mh.listSize = 4;
+    for(Metadata m : metadatas){
+        mh.listSize += 8 + m.calcSize();
+    }
+}
+
+/**
+ * @details get list size
+*/
+int MetadataManager::getListSize(){
+    return mh.listSize;
+}
+
+/**
+ * @details get old list size
+*/
+int MetadataManager::getOldListSize(){
+    return oldListSize;
 }

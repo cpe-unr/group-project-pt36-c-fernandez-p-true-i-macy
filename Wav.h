@@ -12,16 +12,17 @@
 
 class Wav{
 private:
+    std::string path;
     std::string fileName;
     WavHeader wh;
     unsigned char* buffer = NULL;
     unsigned char* buffer2 = NULL;
     MetadataManager mm;
 public:
-    Wav(const std::string&);
+    Wav(const std::string&, const std::string&);
     virtual ~Wav();
     void destructData();
-    void writeFile(const std::string&);
+    void writeFile(std::vector<std::string>&);
     void printMetadata();
     std::string getFileName() const;
     int getBitsPerSample() const;

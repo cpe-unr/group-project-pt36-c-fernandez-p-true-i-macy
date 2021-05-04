@@ -31,7 +31,7 @@ private:
         int option;    
         do{
             std::cout << std::endl  << "1) Normalization" << std::endl << "2) Noisegating" << std::endl 
-                << "3) Echo" << std::endl << std::endl << "SELECT AN OPTION: ";
+                << "3) Echo" << std::endl << "SELECT AN OPTION: ";
             std::cin >> option;
             switch(option){
                 case 1: 
@@ -57,6 +57,7 @@ public:
     Driver(Wav* wav) : wav(wav){}
     void setWav(Wav*);
     void processWav();
+    void outputWavFile(std::vector<std::string>);
 };
 
 #endif // DRIVER_H

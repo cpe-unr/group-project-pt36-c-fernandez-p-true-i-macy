@@ -4,10 +4,11 @@
  * @param fileName - the name of the file 
  *  constructs Wav object from input file
 */
-Wav::Wav(const std::string& fileName){
-    std::ifstream file(fileName,std::ios::binary | std::ios::in);
+Wav::Wav(const std::string& path, const std::string& fileName){
+    std::ifstream file(path + fileName,std::ios::binary | std::ios::in);
     if(file.is_open()){
-        this->fileName = fileName;                      // reads fileName
+        this->path = path;
+        this->fileName = fileName;
         file.read((char*)&wh, sizeof(WavHeader));       // reads WavHeader
         if(wh.numChannels == 1){                        // reads mono
             buffer = new unsigned char[wh.dataSize];
@@ -35,18 +36,51 @@ Wav::Wav(const std::string& fileName){
 }
 
 /**
- * @param outFileName - the out file name
+ * @param fileNames - vector containing list of filenames already in directory
  *  writes contents of Wav object to output .wav file
 */
-void Wav::writeFile(const std::string &outFileName){
-    std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
-    outFile.write((char*)&wh,sizeof(WavHeader));
-    // WRITE DATA
-    if(mm.getSize() > 0){
-        // WRTIE METADATA HEADER
-        // WRITE METADATA
-    }
-    outFile.close();
+void Wav::writeFile(std::vector<std::string>& fileNames){
+    std::string outFileName;
+    bool validName;
+    do{ 
+        validName = 1;
+        std::cout << std::endl << "NAME OUTPUT FILE: ";
+        std::cin >> outFileName;
+        for(std::string s : fileNames){
+            if(s == outFileName){
+                validName = 0;
+            }
+        }
+        std::string extension(outFileName.end() - 4, outFileName.end());
+        if(validName == 0){
+            std::cout << "This file already exists." << std::endl;
+        } else if(extension != ".wav"){
+            validName = 0;
+            std::cout << "Filename must end in \'.wav\'." << std::endl;
+        } else{
+            mm.setListSize();
+            wh.fileSize += mm.getListSize() - mm.getOldListSize();
+            std::ofstream outFile(path + outFileName, std::ios::out | std::ios::binary);
+            outFile.write((char*)&wh,sizeof(WavHeader));
+            if(wh.numChannels == 1){                        // writes mono
+                outFile.write((char*)buffer, wh.dataSize); 
+            } else{                                         // writes stereo
+                for(int i = 0; i < wh.dataSize/2; i += wh.blockAlign/2){
+                    for(int j = 0; j < wh.bitsPerSample/8; ++j){
+                        outFile.put(buffer[i+j]);
+                    }
+                    for(int j = 0; j < wh.bitsPerSample/8; ++j){
+                        outFile.put(buffer2[i+j]);
+                    }
+                }
+            }
+            if(mm.getSize() > 0){
+                mm.writeFile(outFile);
+            }
+            outFile.close();
+            std::cout << "File has been created." << std::endl;
+        }
+    } while(validName == 0);
 }
 
 /**

@@ -23,9 +23,17 @@ std::string Metadata::getID() const{
 }
 
 /**
- *  @returns - number of bytes in metadata buffer
+ *  @returns - number of bytes in metadata size variable
 */ 
 int Metadata::getSize() const{
+    return metadataSize;
+}
+
+/**
+ *  @returns - number of bytes in metadata buffer
+*/ 
+int Metadata::calcSize(){
+    metadataSize = buffer.size() + 1;
     return metadataSize;
 }
 
@@ -43,4 +51,15 @@ std::string Metadata::getBuffer() const{
 */
 void Metadata::setBuffer(std::string buffer){
     this->buffer = buffer;
+}
+
+/**
+ * @param outFile output file stream
+ * @details writes one busy piece
+*/
+void Metadata::writeFile(std::ofstream& outFile){
+    outFile.write(metadataID, sizeof(metadataID));
+    outFile.write(reinterpret_cast<char*>(&metadataSize), sizeof(metadataSize));
+    outFile.write(&buffer[0], buffer.size());
+    outFile.put('\0');
 }

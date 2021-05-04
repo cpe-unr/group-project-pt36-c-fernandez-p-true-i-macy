@@ -16,6 +16,7 @@
 */
 class WavManager{
 private:
+    std::vector<std::string> fileNames;
     std::vector<Wav*> wavs;
 public:
     WavManager(char*);
@@ -23,6 +24,7 @@ public:
     Wav* getWav(int) const;
     int getSize() const;
     Wav* selectWav();
+    std::vector<std::string> getFileNames() const;
 };
 
 #endif // WAV_MANAGER

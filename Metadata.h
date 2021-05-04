@@ -21,8 +21,10 @@ public:
     Metadata(std::ifstream&);
     std::string getID() const;
     int getSize() const;
+    int calcSize();
     std::string getBuffer() const;
     void setBuffer(std::string);
+    void writeFile(std::ofstream&);
 };
 
 #endif //METADATA_H

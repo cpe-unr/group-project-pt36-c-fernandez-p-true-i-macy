@@ -11,8 +11,7 @@ WavManager::WavManager(char* path){
     if(dir == NULL){
         std::cout << "Directory could not be found." << std::endl;
     } else{
-        // creates and populates fileNames vector
-        std::vector<std::string> fileNames;
+        // populates fileNames vector
         while((entry = readdir(dir)) != NULL){
             std::string temp = entry->d_name;
             std::string extension(temp.end() - 4, temp.end());
@@ -28,7 +27,7 @@ WavManager::WavManager(char* path){
             for(std::string fileName : fileNames){  
                 std::string strPath(path);
                 strPath.push_back('/');
-                wavs.push_back(new Wav(strPath + fileName));
+                wavs.push_back(new Wav(strPath, fileName));
             }
         }
     }
@@ -72,4 +71,11 @@ Wav* WavManager::selectWav(){
         std::cin >> index;
     } while(index < 1 || index > wavs.size());
     return wavs[index - 1];
+}
+
+/**
+ * @returns - address of fileNames vector
+*/
+std::vector<std::string> WavManager::getFileNames() const{
+    return fileNames;
 }
