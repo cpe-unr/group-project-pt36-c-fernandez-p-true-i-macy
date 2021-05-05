@@ -57,7 +57,7 @@ private:
                 default:
                     std::cout << std::endl << "Please enter a valid option." << std::endl;
             }
-        } while(option != 1 && option != 2 && option && 3);
+        } while(option != 1 && option != 2 && option != 3);
         std::cout << std::endl <<"OPTION " << option << std::endl;
     }
 
@@ -66,7 +66,6 @@ public:
     void setWav(Wav*);
     void processWav();
     void outputWavFile(std::vector<std::string>);
-    void outputCSVFile(std::vector<Wav*>);
     void editMetadata();
 };
 

@@ -28,18 +28,8 @@ void Driver::outputWavFile(std::vector<std::string> fileNames){
 }
 
 /**
- * @details writes Wav file to output .csv file
- * @param wavs vector of pointer to Wav files in directory
-*/
-void Driver::outputCSVFile(std::vector<Wav*> wavs){
-    wav->writeCSV(wavs);
-}
-
-//////////////////////////////////////////
-/**
  * @details edit metadata
 */
 void Driver::editMetadata(){
     wav->editMetadata();
 }
-///////////////////////////////////////////

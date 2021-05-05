@@ -44,19 +44,22 @@ void fn(){
  * @return 0
 */
 int main(int argc, char* const argv[]){
+    argc = 2;
+    char ARGV0[6] = {'.','/','t','e','s','t'};
+    char ARGV1[10] = {'a','u','d','i','o','f','i','l','e','s'};
+
     // Read input directory into WavManager object
     // Each file saved as Wav object in WavManager.wavs vector
     if(argc != 2){
         std::cout << "Correct usage:" << std::endl;
-        std::cout << argv[0] << " path (ex: \"./test audiofiles\")" << std::endl;
+        std::cout << ARGV0 << " path (ex: \"./test audiofiles\")" << std::endl;
         return 0;
     }
 
-    WavManager wm(argv[1]);
+    WavManager wm(ARGV1);
     if(wm.getSize() < 1){
         return 0;
     }
-
     // Main Menu
     Driver d(wm.selectWav());
     int option;
@@ -72,7 +75,7 @@ int main(int argc, char* const argv[]){
             case 1: d.processWav(); break;
             case 2: d.setWav(wm.selectWav()); break;
             case 3: d.outputWavFile(wm.getFileNames()); break;
-            case 4: d.outputCSVFile(wm.getWavs()); break;
+            case 4: wm.writeCSV(ARGV1); break;
             case 5: d.editMetadata(); break;
             default: std::cout << std::endl << "Please enter a valid option." << std::endl;
         }   

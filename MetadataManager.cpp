@@ -1,7 +1,7 @@
 #include "MetadataManager.h"
 
 /**
- *  @details constructs MetadataManager object from input file stream
+ * @details constructs MetadataManager object from input file stream
  * @param file the file info
 */
 MetadataManager::MetadataManager(std::ifstream& file){
@@ -13,7 +13,6 @@ MetadataManager::MetadataManager(std::ifstream& file){
     }
 }
 
-////////////////////////////////////////////////////////////
 /**
  *  @details prints each metadata chunk on a new line, attributes separated by tabs
 */
@@ -41,19 +40,20 @@ void MetadataManager::editMetadata(){
         if(mdid[0] != '0'){
             std::cout << "ENTER METADATA: ";
             std::cin >> md;
+            md.push_back('\0');
 
-            std::string str;
+            std::string str = "";
             bool overwrite = 0;
-            for(char c : mdid){
-                str.push_back(c);
+
+            for(int i = 0; i < 4; ++i){
+                str.push_back(mdid[i]);
             }
-            str.push_back('\0');
 
             for(int i = 0; i < metadatas.size(); ++i){   
                 if(metadatas[i].getID() == str){
                     metadatas[i].setBuffer(md);
-
-                overwrite = 1;
+                    metadatas[i].setSize(md.size() + 1);
+                    overwrite = 1;
                 }
             }
 
@@ -63,7 +63,6 @@ void MetadataManager::editMetadata(){
         }      
     } while(mdid[0] != '0'); 
 }
-////////////////////////////////////////////////////////////
 
 /** 
  * @returns number of metadata chunks held in metadatas vector
@@ -90,13 +89,13 @@ void MetadataManager::setListSize(){
     oldListSize = mh.listSize;
     mh.listSize = 4;
     for(Metadata m : metadatas){
-        m.setSize(m.getBufferSize() + 1);
         mh.listSize += 8 + m.getSize();
     }
 }
 
 /**
  * @details get list size
+ * @return integer list size
 */
 int MetadataManager::getListSize(){
     return mh.listSize;
@@ -104,6 +103,7 @@ int MetadataManager::getListSize(){
 
 /**
  * @details get old list size
+ * @return size of list before metadata editing
 */
 int MetadataManager::getOldListSize(){
     return oldListSize;
@@ -111,18 +111,14 @@ int MetadataManager::getOldListSize(){
 
 /**
  * @details Writing the CSV information for the MetadataHeader
- * @param Metadata - Vector
+ * @param outFile output wav file stream
 */
-
 void MetadataManager::writeCSVMetaM(std::ofstream& outFile){
-
-    for(Metadata& md : metadatas){
-        if((md.getID().empty()) || (md.getBuffer().empty())){
-            outFile << "No metadata present" << std::endl;
-
-        }
-        else{
-            outFile << md.getID() << ", " << md.getBuffer() << std::endl; //NEED TO FIGURE OUT WHICH INFO SPECIFICALLY
+    if(metadatas.empty()){
+        outFile << "No metadata present" << std::endl;
+    } else{
+        for(Metadata& md : metadatas){
+            outFile << md.getID() << ", " << md.getBuffer() << std::endl;
         }
     }
 }

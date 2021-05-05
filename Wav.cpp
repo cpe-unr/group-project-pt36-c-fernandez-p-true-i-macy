@@ -36,22 +36,26 @@ Wav::Wav(const std::string& path, const std::string& fileName){
 }
 
 /**
- * @param fileNames - vector containing list of filenames already in directory
- *  writes contents of Wav object to output .wav file
+ * @param fileNames vector containing list of filenames already in directory
+ * @details writes contents of Wav object to output .wav file
 */
 void Wav::writeFile(std::vector<std::string>& fileNames){
     std::string outFileName;
     bool validName;
+
     do{ 
         validName = 1;
         std::cout << std::endl << "NAME OUTPUT FILE: ";
         std::cin >> outFileName;
+
         for(std::string s : fileNames){
             if(s == outFileName){
                 validName = 0;
             }
         }
+
         std::string extension(outFileName.end() - 4, outFileName.end());
+
         if(validName == 0){
             std::cout << "This file already exists." << std::endl;
         } else if(extension != ".wav"){
@@ -60,8 +64,10 @@ void Wav::writeFile(std::vector<std::string>& fileNames){
         } else{
             mm.setListSize();
             wh.fileSize += mm.getListSize() - mm.getOldListSize();
+
             std::ofstream outFile(path + outFileName, std::ios::out | std::ios::binary);
             outFile.write((char*)&wh,sizeof(WavHeader));
+
             if(wh.numChannels == 1){                        // writes mono
                 outFile.write((char*)buffer, wh.dataSize); 
             } else{                                         // writes stereo
@@ -74,9 +80,11 @@ void Wav::writeFile(std::vector<std::string>& fileNames){
                     }
                 }
             }
+
             if(mm.getSize() > 0){
                 mm.writeFile(outFile);
             }
+
             outFile.close();
             std::cout << "File has been created." << std::endl;
         }
@@ -85,35 +93,15 @@ void Wav::writeFile(std::vector<std::string>& fileNames){
 
 /**
  * @details writes to output csv file
- * @param wavs - vector of the wavs
+ * @param outFile output file stream
 */
-void Wav::writeCSV(std::vector<Wav*> wavs){
-    std::string outFileName;
-    bool validName;
-    std::ofstream outFile;
-    do{ 
-        validName = 1;
-        std::cout << std::endl << "NAME OUTPUT FILE: ";
-        std::string extension(outFileName.end() - 4, outFileName.end());
-        if(extension != ".csv"){
-            validName = 0;
-            std::cout << "Filename must end in '.csv'." << std::endl;
-        } else{
-            mm.setListSize();
-            wh.fileSize += mm.getListSize() - mm.getOldListSize();
-
-            outFile.open(outFileName);
-            if(outFile.is_open()){
-                for(Wav* wav : wavs){
-                    outFile << wh.fileSize << ", " << wh.fmtSize << ", " << wh.audioFmt << ", " << wh.numChannels << ", " << wh.sampleRate << ", " << wh.byteRate << ", " << wh.blockAlign << ", " << wh.bitsPerSample << ", " << wh.dataSize << ", " << std::endl;
-                    mm.writeCSVMetaM(outFile);
-                }
-            }
-            else{
-                std::cout << "Could not open " << outFileName << std::endl;
-            }
-        }
-    } while(validName == 0);
+void Wav::writeCSV(std::ofstream& outFile){
+    mm.setListSize();
+    wh.fileSize += mm.getListSize() - mm.getOldListSize();
+    outFile << wh.fileSize << ", " << wh.fmtSize << ", " << wh.audioFmt << ", " 
+        << wh.numChannels << ", " << wh.sampleRate << ", " << wh.byteRate << ", " 
+        << wh.blockAlign << ", " << wh.bitsPerSample << ", " << wh.dataSize << ", " << std::endl;
+    mm.writeCSVMetaM(outFile);
 }
 
 /**

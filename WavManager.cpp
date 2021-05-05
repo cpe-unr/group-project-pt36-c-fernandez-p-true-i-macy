@@ -34,7 +34,7 @@ WavManager::WavManager(char* path){
 } 
 
 /**
- * @details - destructs WavManager and deletes all Wav files in wavs vector
+ * @details destructs WavManager and deletes all Wav files in wavs vector
 */
 WavManager::~WavManager(){
     for(Wav* wav: wavs){
@@ -43,22 +43,22 @@ WavManager::~WavManager(){
 }
 
 /**
- * @param i - index i 
- * @returns - pointer to Wav object at index i in wavs vector
+ * @param i index i 
+ * @returns pointer to Wav object at index i in wavs vector
 */
 Wav* WavManager::getWav(int i) const{
     return wavs[i];
 }
 
 /**
- *  @returns - size of wavs vector
+ *  @returns size of wavs vector
 */
 int WavManager::getSize() const{
     return wavs.size();
 }
 
 /**
- * @returns - pointer to the Wav object you select
+ * @returns pointer to the Wav object you select
 */ 
 Wav* WavManager::selectWav(){
     int index = 0;
@@ -74,15 +74,33 @@ Wav* WavManager::selectWav(){
 }
 
 /**
- * @return wavs vector
-*/
-std::vector<Wav*> WavManager::getWavs() const{
-    return wavs;
-}
-
-/**
  * @returns fileNames vector
 */
 std::vector<std::string> WavManager::getFileNames() const{
     return fileNames;
+}
+
+/**
+ * @details writes to output csv file
+*/
+void WavManager::writeCSV(char* path){
+    std::string strPath(path);
+    strPath.push_back('/');
+    std::string outFileName;
+    bool validName;
+    do{ 
+        validName = 1;
+        std::cout << std::endl << "NAME OUTPUT FILE: ";
+        std::cin >> outFileName;
+        std::string extension(outFileName.end() - 4, outFileName.end());
+        if(extension != ".csv"){
+            validName = 0;
+            std::cout << "Filename must end in '.csv'." << std::endl;
+        } else{
+            std::ofstream outFile(strPath + outFileName);
+            for(Wav* wav : wavs){
+                wav->writeCSV(outFile);
+            }
+        }
+    } while(validName == 0);
 }

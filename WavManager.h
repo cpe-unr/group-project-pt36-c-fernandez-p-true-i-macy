@@ -26,6 +26,7 @@ public:
     Wav* selectWav();
     std::vector<Wav*> getWavs() const;
     std::vector<std::string> getFileNames() const;
+    void writeCSV(char*);
 };
 
 #endif // WAV_MANAGER

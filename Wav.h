@@ -23,7 +23,7 @@ public:
     virtual ~Wav();
     void destructData();
     void writeFile(std::vector<std::string>&);
-    void writeCSV(std::vector<Wav*>);
+    void writeCSV(std::ofstream&);
     void printMetadata();
     std::string getFileName() const;
     int getBitsPerSample() const;
